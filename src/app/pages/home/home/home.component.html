@@ -1,4 +1,92 @@
-<div class="container mt-5 home-content">
-  <h1>Bem-vindo ao Amantus Finance</h1>
-  <p>Gerencie suas finanças pessoais de forma eficiente.</p>
-</div>
+<section class="slogan-section p-5 m-5">
+  <div class="row align-items-center justify-content-around">
+    <div class="col-md-5">
+      <h1 class="slogan mb-5 display-6 fw-bold">Bem-vindo ao Amantus Finance</h1>
+      <p class="mb-5 w-75 fs-5">
+        Seu parceiro confiável para o gerenciamento financeiro pessoal.
+        Comece hoje a controlar suas finanças de forma eficaz.
+      </p>
+      <a [routerLink]="['/register']" class="btn btn-primary px-3">Comece Agora</a>
+    </div>
+    <div class="col-md-5">
+      <img src="../../../../assets/undraw_finance.svg" alt="Ilustração de gerenciamento financeiro"
+      class="img-fluid">
+    </div>
+  </div>
+</section>
+
+<!-- Seção de Destaques -->
+<section class="highlights-section p-5">
+
+  <h2 class="service text-center mb-5">Nossos Serviços Financeiros</h2>
+
+    <div class="row justify-content-center align-items-center h-100">
+      
+      <div class="col-md-3">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title d-flex flex-column justify-content-center align-items-center gap-2 mb-4">
+              <fa-icon [icon]="['fas', 'chart-bar']"></fa-icon>
+              Gerenciamento Financeiro
+            </h5>
+            <p class="card-text">Registre suas receitas e despesas facilmente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title d-flex flex-column justify-content-center align-items-center gap-2 mb-4">
+              <fa-icon [icon]="['fas', 'wallet']"></fa-icon>
+              Criação de Orçamento
+            </h5>
+            <p class="card-text">Estabeleça limites de gastos com orçamentos personalizados.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title d-flex flex-column justify-content-center align-items-center gap-2 mb-4">
+              <fa-icon [icon]="['fas', 'line-chart']"></fa-icon>
+              Relatórios e Análises
+            </h5>
+            <p class="card-text">Obtenha insights sobre seus hábitos de gastos.</p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+</section>
+
+<!-- Seção de Contato -->
+<section class="contact-section py-5">
+  <div class="container mt-5 mb-5">
+    <div class="row align-items-center justify-content-around">
+
+      <div class="col-md-5">
+        <img src="../../../../assets/undraw_contact.svg" alt="Entre em Contato" class="img-fluid" width="500px">
+      </div>
+
+      <div class="col-md-5">
+        <h2 class="mb-4">Entre em Contato</h2>
+        <p class="mb-4">Estamos sempre disponíveis para ajudar você. Entre em contato conosco se tiver alguma dúvida, sugestão ou precisar de suporte.</p>
+
+        <ul class="list-unstyled">
+          <li class="d-flex gap-5">
+            <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+            <p>Email: contato@amantusfinance.com</p>
+          </li>
+          <li class="d-flex gap-5">
+            <fa-icon [icon]="['fas', 'phone']"></fa-icon>
+            <p>Telefone: (XX) XXXX-XXXX</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
