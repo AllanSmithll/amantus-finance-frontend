@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './modules/auth/auth.module';
-import {HomeModule} from "./pages/home/home.module";
-import {SharedModule} from "./shared/shared.module";
-import {NavbarComponent} from "./shared/components/navbar/navbar.component";
-import {FooterComponent} from "./shared/components/footer/footer.component";
+import { HomeModule } from "./pages/home/home.module";
+import { SharedModule } from "./shared/shared.module";
+import { NavbarComponent } from "./shared/components/navbar/navbar.component";
+import { FooterComponent } from "./shared/components/footer/footer.component";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FooterComponent} from "./shared/components/footer/footer.component";
     AppRoutingModule,
     AuthModule,
     SharedModule,
-    HomeModule
+    HomeModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
