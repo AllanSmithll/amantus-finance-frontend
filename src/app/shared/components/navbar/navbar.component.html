@@ -1,41 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="/">Amantus Finance</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <a class="navbar-brand" href="/"><img src="../../../../assets/logo_amantus.png" alt="Logo do Amantus Finance" class="logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <!-- <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+    <div class="collapse navbar-collapse" id="navElements">
+      <ul class="navbar-nav ms-auto">
+        <!-- Exibe apenas quando o usuário NÃO estiver logado -->
+        <li class="nav-item" *ngIf="!varUserIsLoggedIn">
+          <a class="nav-link" [routerLink]="['/login']">Login</a>
         </li>
-        -->
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!varUserIsLoggedIn">
+          <a class="nav-link" [routerLink]="['/register']">Cadastrar</a>
+        </li>
+        <!-- Exibe apenas quando o usuário estiver logado -->
+        <li class="nav-item" *ngIf="varUserIsLoggedIn">
           <a class="nav-link" [routerLink]="['/incomes']">Receitas</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="varUserIsLoggedIn">
           <a class="nav-link" [routerLink]="['/expenses']">Despesas</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/debts']">Dívidas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/budget']">Orçamento</a>
-        </li>
-        -->
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/profile']">Perfil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']">Login</a>
+        <li class="nav-item" *ngIf="varUserIsLoggedIn">
+          <a class="nav-link" [routerLink]="['/expenses']">Despesas</a>
         </li>
       </ul>
     </div>

@@ -14,9 +14,8 @@ export class LoginComponent {
               private router: Router) {}
 
   onLogin(email: string, password: string): void {
-    console.log(email, password)
       if (this.authService.login(email, password)) {
-        this.router.navigate(["/"]).then()
+        this.router.navigate(["/"]).then();
         this.error = '';
       }
       else {
