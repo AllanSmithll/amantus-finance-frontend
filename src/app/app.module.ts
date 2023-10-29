@@ -9,12 +9,15 @@ import { SharedModule } from "./shared/shared.module";
 import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MaterialModule} from "./shared/material/material.module";
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AuthModule,
     SharedModule,
     HomeModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
