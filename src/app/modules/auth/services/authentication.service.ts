@@ -1,36 +1,37 @@
 import {Injectable} from '@angular/core';
-import {USERS} from "../../../shared/models/USERS";
+import { HttpService } from "../../../shared/services/http.service";
 import {User} from "../../../shared/models/user.model";
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, Observable, map} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   private isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  users = USERS;
+  private apiUsersUrl  = 'http://localhost:3000/users';
 
-  login(email: string, password: string): boolean {
-    const user = this.users.find(user => user.email === email && user.password === password);
-    if (user) {
-      this.isAuthenticated.next(true); // Notificar sobre a mudança
-      return true;
-    } else {
-      this.isAuthenticated.next(false); // Notificar sobre a mudança
-      return false;
-    }
+  constructor(private http: HttpService) {}
+
+  login(email: string, password: string): Observable<boolean> {
+    return this.http.get(this.apiUsersUrl).pipe(
+      map(users => {
+        const user = users.find((user: any) => user._email === email && user._password === password);
+        const isAuthenticated = !!user;
+        this.isAuthenticated.next(isAuthenticated);
+        return isAuthenticated;
+      })
+    );
   }
 
-  register(name: string, email: string, password: string, birthdate: Date): boolean {
-    let userCreation = new User(email, password, name, birthdate);
-
-    const existingUser: User | undefined = this.users.find(user => user.email === email);
-    if (existingUser) {
-      return false;
-    } else {
-      this.users.push(userCreation);
-      return true;
-    }
+  register(name: string, email: string, password: string, birthdate: Date): Observable<boolean> {
+    const userCreation = new User(email, password, name, birthdate);
+    return this.http.post(this.apiUsersUrl, userCreation).pipe(
+      map((response: User) => {
+        const isAuthenticated = !!response;
+        this.isAuthenticated.next(isAuthenticated);
+        return isAuthenticated;
+      })
+    );
   }
 
   logout(): void {

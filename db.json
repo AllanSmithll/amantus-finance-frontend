@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "_email": "admin@gmail.com",
+      "_password": "admin",
+      "_name": "admin",
+      "_birthdate": "2023-10-03T03:00:00.000Z",
+      "_listIncomes": [],
+      "_listExpenses": [],
+      "id": 1
+    }
+  ]
+}
