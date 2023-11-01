@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,8 +10,9 @@ import { SharedModule } from "./shared/shared.module";
 import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {MaterialModule} from "./shared/material/material.module";
+import { MaterialModule } from "./shared/material/material.module";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { DashboardModule } from "./modules/dashboard/dashboard.module";
 
 @NgModule({
   declarations: [
@@ -26,9 +28,14 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     SharedModule,
     HomeModule,
     FontAwesomeModule,
-    MaterialModule
+    MaterialModule,
+    DashboardModule,
+    HttpClientModule
   ],
   providers: [],
+  exports: [
+    NavbarComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
