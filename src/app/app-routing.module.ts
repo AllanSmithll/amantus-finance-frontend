@@ -5,6 +5,7 @@ import {RegisterComponent} from './modules/auth/components/register/register.com
 import {HomeComponent} from "./pages/home/home/home.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {DashboardComponent} from "./modules/dashboard/components/dashboard/dashboard.component";
+import { IncomeAddComponent } from './modules/income/components/income-add/income-add.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+  },
+  {
+    path: 'incomes',
+    component: IncomeAddComponent
   },
   {path: '**', redirectTo: 'not-found'}
 ];
