@@ -5,6 +5,10 @@ import { RouterModule } from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -17,6 +21,9 @@ import {CommonModule} from "@angular/common";
             {path: 'register', component: RegisterComponent}
         ]),
         FormsModule,
+        MatCardModule,
+        MatInputModule,
+        MatButtonModule
 ],
   exports: [
     LoginComponent,
