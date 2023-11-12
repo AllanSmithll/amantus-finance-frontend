@@ -1,132 +1,59 @@
-<mat-card class="card-form-cadastro">
-  <mat-card-header>
-    <mat-card-title>Cadastro de Receitas</mat-card-title>
-  </mat-card-header>
+<app-income></app-income>
 
-  <mat-card-content class="card-content-cadastro">
-
-    <mat-form-field>
-      <mat-label>Id</mat-label>
-      <input matInput type="text" [(ngModel)]="incomeId" placeholder="id da receita" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Descrição</mat-label>
-      <input matInput [(ngModel)]="receitaTratamento.description" placeholder="descrição da receita" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Valor</mat-label>
-      <input matInput type="number" [(ngModel)]="receitaTratamento.value" placeholder="valor da receita" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Data</mat-label>
-      <input matInput type="date"  [(ngModel)]="receitaTratamento.date" placeholder="data da receita" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Categoria</mat-label>
-      <input matInput [(ngModel)]="receitaTratamento.category" placeholder="categoria da receita" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Origem</mat-label>
-      <input matInput [(ngModel)]="incomeOrigin" placeholder="origem da receita" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Frequência</mat-label>
-      <input matInput [(ngModel)]="receitaTratamento.frequency" placeholder="frequencia da receita" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Informação adicional</mat-label>
-      <input matInput [(ngModel)]="receitaTratamento.addInformation" placeholder="adicione algo a mais" />
-    </mat-form-field>
-
-  </mat-card-content>
-
-  <mat-card-footer>
-
-    <button
-      mat-raised-button 
-      color="primary"
-      (click)="cadastrar()"
-      class="card-footer-cadastro"
-    > 
-      cadastrar 
-    </button>
-    
-  </mat-card-footer>
-
-</mat-card>  
-
-<div class="mensagem-erro" *ngIf="mostrarErro">
-  {{ mensagemErro }}
-  <button mat-icon-button color="basic" (click)="limparErro()"><mat-icon>close</mat-icon></button>
-</div>
-<!-- Botão para listar receitas cadastradas -->
-
-<form *ngIf="mostrarFormularioEdicao" (submit)="atualizar()" class="formulario-edicao">
-  <h2>Editar Receita</h2>
-  <div class="inputs">
-    Id: <input readonly type="number" [(ngModel)]="incomeId" name="id" />
-    Descrição: <input [(ngModel)]="receitaTratamento.description" name="description" />
-    Valor: <input [(ngModel)]="receitaTratamento.value" name="value" />
-    Data: <input type="date" [(ngModel)]="receitaTratamento.date" name="date" />
-    Categoria: <input [(ngModel)]="receitaTratamento.category" name="category" />
-    Origem: <input [(ngModel)]="incomeOrigin" name="origin" />
-    Frequência: <input [(ngModel)]="receitaTratamento.frequency" name="frequency" />
-    Informação adicional: <input [(ngModel)]="receitaTratamento.addInformation" name="add_information" />
-  </div>
-  <button mat-raised-button color="accent" type="submit">Salvar</button>
-</form>
-
-<div class="botao-listar">
-  <mat-badge [matBadge]="numeroDeReceitas" matBadgePosition="above after">
-    <button mat-raised-button color="basic" (click)="listarReceitas()">Listar Receitas Cadastradas</button>
-  </mat-badge>
-</div>
-
-
-<!-- Área para exibir a lista de receitas (mostrada somente quando o botão é clicado) -->
-<div *ngIf="exibirListaReceitas" class="listagem-receitas">
-  <h3>Lista de Receitas Cadastradas</h3>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Descrição</th>
-        <th>Valor</th>
-        <th>Data</th>
-        <th>Categoria</th>
-        <th>Origem</th>
-        <th>Frequência</th>
-        <th>Informação adicional</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let receita of receitas">
-        <td>{{ incomeId }}</td>
-        <td>{{ receita.description }}</td>
-        <td>{{ receita.value }}</td>
-        <td>{{ receita.date }}</td>
-        <td>{{ receita.category }}</td>
-        <td>{{ incomeOrigin }}</td>
-        <td>{{ receita.frequency }}</td>
-        <td>{{ receita.addInformation }}</td>
-        <td>
-          <div class="botoes-acao">
-            <button mat-mini-fab color="warn" (click)="editar(receita)"><mat-icon>edit</mat-icon></button>
-            <button mat-mini-fab color="primary" (click)="excluirReceita(receita)"><mat-icon>delete</mat-icon></button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-
+<mat-card class="card-form-cadastro p-5">
+    <mat-card-header class="justify-content-center mb-5">
+      <mat-card-title class="fs-3">Cadastro de Receitas</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content class="card-content-cadastro row row-cols-3">
+  
+      <mat-form-field>
+        <mat-label>Descrição</mat-label>
+        <input matInput [(ngModel)]="receitaTratamento.description" placeholder="descrição da receita" />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Valor</mat-label>
+        <input matInput type="number" [(ngModel)]="receitaTratamento.value" placeholder="valor da receita" />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Data</mat-label>
+        <input matInput type="date"  [(ngModel)]="receitaTratamento.date" placeholder="data da receita" />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Categoria</mat-label>
+        <mat-select [(ngModel)]="receitaTratamento.category" placeholder="Escolha a categoria">
+            <mat-option value="salario">Salário</mat-option>
+            <mat-option value="aluguel">Aluguel</mat-option>
+            <mat-option value="rendimento">Rendimento</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Frequência</mat-label>
+        <input matInput [(ngModel)]="receitaTratamento.frequency" placeholder="frequencia da receita" />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Informação adicional</mat-label>
+        <input matInput [(ngModel)]="receitaTratamento.addInformation" placeholder="adicione algo a mais" />
+      </mat-form-field>
+  
+    </mat-card-content>
+  
+    <mat-card-footer class="text-center m-3">
+  
+      <button
+        mat-raised-button 
+        color="primary"
+        (click)="cadastrar()"
+        class="botao"
+      > 
+        cadastrar 
+      </button>
+      
+    </mat-card-footer>
+  
+</mat-card> 

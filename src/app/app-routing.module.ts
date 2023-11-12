@@ -5,22 +5,41 @@ import {RegisterComponent} from './modules/auth/components/register/register.com
 import {HomeComponent} from "./pages/home/home/home.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {DashboardComponent} from "./modules/dashboard/components/dashboard/dashboard.component";
+import { IncomeListComponent } from './modules/income/components/income-list/income-list.component';
 import { IncomeAddComponent } from './modules/income/components/income-add/income-add.component';
+import { IncomeComponent } from './modules/income/components/income/income.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'not-found', component: NotFoundComponent},
+  {
+    path: '', 
+    component: HomeComponent
+  },
+  {
+    path: 'login', 
+    component: LoginComponent
+  },
+  {
+    path: 'register', 
+    component: RegisterComponent
+  },
+  {
+    path: 'not-found', 
+    component: NotFoundComponent},
   {
     path: 'dashboard',
     component: DashboardComponent,
   },
   {
-    path: 'incomes',
+    path: 'create-income',
     component: IncomeAddComponent
   },
-  {path: '**', redirectTo: 'not-found'}
+  {
+    path: 'my-incomes',
+    component: IncomeListComponent
+  },
+  {
+    path: '**', 
+    redirectTo: 'not-found'}
 ];
 
 @NgModule({

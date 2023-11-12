@@ -9,5 +9,19 @@
       "_listExpenses": [],
       "id": 1
     }
+  ],
+  "incomes": [
+    {
+      "_id": "81bcc0cf-28af-4757-a11e-5dde5dac0f80",
+      "_description": "Alic",
+      "_value": 999,
+      "_category": "rendimento",
+      "_frequency": "FREQ",
+      "_add_information": "AAAAAAAA",
+      "_date": "9999-09-09",
+      "_origin": "Original",
+      "_userId": "",
+      "id": "BviHAhI"
+    }
   ]
 }
