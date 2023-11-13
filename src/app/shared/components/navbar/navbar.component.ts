@@ -12,10 +12,10 @@ export class NavbarComponent implements OnInit {
   isNavbarVisible: boolean = true;
 
   constructor(private authService: AuthenticationService, private router: Router) {
-    // Assine os eventos de navegação para verificar a rota ativa
+    // Assinala os eventos de navegação para verificar a rota ativa
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // Verifique a rota ativa e defina a visibilidade da barra de navegação
+        // Verifica a rota ativa e defina a visibilidade da barra de navegação
         this.isNavbarVisible = !['/login', '/register'].includes(event.url);
       }
     });

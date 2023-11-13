@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IncomeListComponent } from './components/income-list/income-list.component';
 import { IncomeAddComponent } from './components/income-add/income-add.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,13 +19,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
+import { IncomeEditModalComponent } from './components/income-edit-modal/income-edit-modal.component';
 
 
 @NgModule({
   declarations: [
     IncomeAddComponent,
     IncomeListComponent,
-    IncomeComponent
+    IncomeComponent,
+    IncomeEditModalComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTableModule,
     RouterOutlet,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   exports: [
     IncomeAddComponent,
