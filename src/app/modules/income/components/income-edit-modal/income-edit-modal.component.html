@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Editar Receita - {{ data.income.id }}</h2>
+<div mat-dialog-content>
+  <p>Editar detalhes da receita:</p>
+
+  <form>
+    <mat-form-field>
+      <mat-label>Descrição</mat-label>
+      <input matInput [(ngModel)]="data.income.description" placeholder="descrição da receita"  name="description"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Valor</mat-label>
+      <input matInput type="number" [(ngModel)]="data.income.value" placeholder="valor da receita" name="value"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Data</mat-label>
+      <input matInput type="date"  [(ngModel)]="data.income.date" placeholder="data da receita" name="date"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Categoria</mat-label>
+      <mat-select [(ngModel)]="data.income.category" placeholder="Escolha a categoria" name="category">
+          <mat-option value="salario">Salário</mat-option>
+          <mat-option value="aluguel">Aluguel</mat-option>
+          <mat-option value="rendimento">Rendimento</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Frequência</mat-label>
+      <mat-select [(ngModel)]="data.income.frequency" placeholder="Escolha a frequência" name="frequency">
+        <mat-option value="salario">Diário</mat-option>
+        <mat-option value="aluguel">Semanal</mat-option>
+        <mat-option value="rendimento">Quinzenal</mat-option>
+        <mat-option value="rendimento">Mensal</mat-option>
+        <mat-option value="rendimento">Trimestral</mat-option>
+        <mat-option value="rendimento">Semestral</mat-option>
+        <mat-option value="rendimento">Anual</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Origem</mat-label>
+      <input matInput [(ngModel)]="data.income.origin" placeholder="Origem da receita" name="description"/>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Informação adicional</mat-label>
+      <input matInput [(ngModel)]="data.income.addInformation" placeholder="adicione algo a mais" name="description" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>
