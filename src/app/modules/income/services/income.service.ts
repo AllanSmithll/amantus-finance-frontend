@@ -2,7 +2,6 @@ import {Observable, Subject, tap} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Income } from 'src/app/shared/models/income.model';
-import { UserService } from 'src/app/shared/services/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -45,4 +44,5 @@ export class IncomeService {
   notifyIncomeUpdated() {
     this.incomeUpdated.next();
   }
+
 }
