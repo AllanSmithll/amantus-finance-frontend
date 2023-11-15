@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <p>Editar detalhes da receita:</p>
 
-  <form>
+  <form class="row justify-content-center">
     <mat-form-field>
       <mat-label>Descrição</mat-label>
       <input matInput [(ngModel)]="data.income.description" placeholder="descrição da receita"  name="description"/>
@@ -30,13 +30,13 @@
     <mat-form-field>
       <mat-label>Frequência</mat-label>
       <mat-select [(ngModel)]="data.income.frequency" placeholder="Escolha a frequência" name="frequency">
-        <mat-option value="salario">Diário</mat-option>
-        <mat-option value="aluguel">Semanal</mat-option>
-        <mat-option value="rendimento">Quinzenal</mat-option>
-        <mat-option value="rendimento">Mensal</mat-option>
-        <mat-option value="rendimento">Trimestral</mat-option>
-        <mat-option value="rendimento">Semestral</mat-option>
-        <mat-option value="rendimento">Anual</mat-option>
+        <mat-option value="diario">Diário</mat-option>
+        <mat-option value="semanal">Semanal</mat-option>
+        <mat-option value="quinzenal">Quinzenal</mat-option>
+        <mat-option value="mensal">Mensal</mat-option>
+        <mat-option value="trimestral">Trimestral</mat-option>
+        <mat-option value="semestral">Semestral</mat-option>
+        <mat-option value="anual">Anual</mat-option>
       </mat-select>
     </mat-form-field>
 

@@ -11,41 +11,6 @@
     }
   ],
   "incomes": [
-    {
-      "_id": "81bcc0cf-28af-4757-a11e-5dde5dac0f80",
-      "_description": "Alicia",
-      "_value": 999,
-      "_category": "rendimento",
-      "_frequency": "FREQ",
-      "_add_information": "AAAAAAAA",
-      "_date": "9999-09-09",
-      "_origin": "Picpay",
-      "_userId": "",
-      "id": "BviHAhI"
-    },
-    {
-      "_id": "41a7ded5-81fb-4536-bcdd-96b8f2d0f305",
-      "_description": "Massa",
-      "_value": 2000,
-      "_category": "salario",
-      "_frequency": "Mensal",
-      "_add_information": "Mês de fevereiro de 2023.",
-      "_date": "2020-02-20",
-      "_origin": "",
-      "_userId": "",
-      "id": "Ik844SR"
-    },
-    {
-      "_id": "14424e91-db8e-4e98-b7d0-ef23663bbe79",
-      "_description": "Rendimento",
-      "_value": 0.1,
-      "_category": "rendimento",
-      "_frequency": "salario",
-      "_add_information": "Rendimento da ação do Banco Inter",
-      "_date": "2023-10-10",
-      "_origin": "",
-      "_userId": "",
-      "id": "FJmYfgg"
-    }
+    
   ]
 }

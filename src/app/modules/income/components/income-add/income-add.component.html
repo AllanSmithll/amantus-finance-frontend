@@ -1,30 +1,30 @@
 <app-income></app-income>
 
-<mat-card class="card-form-cadastro p-5">
+<mat-card class="container p-5">
     <mat-card-header class="justify-content-center mb-5">
       <mat-card-title class="fs-3">Cadastro de Receitas</mat-card-title>
     </mat-card-header>
-
+    
     <mat-card-content class="card-content-cadastro row row-cols-3">
 
       <mat-form-field>
         <mat-label>Descrição</mat-label>
-        <input matInput [(ngModel)]="receitaTratamento.description" placeholder="descrição da receita" />
+        <input matInput [(ngModel)]="receitaTratamento.description" placeholder="descrição da receita" required/>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Valor</mat-label>
-        <input matInput type="number" [(ngModel)]="receitaTratamento.value" placeholder="valor da receita" />
+        <input matInput type="number" [(ngModel)]="receitaTratamento.value" placeholder="valor da receita" required/>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Data</mat-label>
-        <input matInput type="date"  [(ngModel)]="receitaTratamento.date" placeholder="data da receita" />
+        <input matInput type="date"  [(ngModel)]="receitaTratamento.date" placeholder="data da receita" required/>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Categoria</mat-label>
-        <mat-select [(ngModel)]="receitaTratamento.category" placeholder="Escolha a categoria">
+        <mat-select [(ngModel)]="receitaTratamento.category" placeholder="Escolha a categoria" required>
             <mat-option value="salario">Salário</mat-option>
             <mat-option value="aluguel">Aluguel</mat-option>
             <mat-option value="rendimento">Rendimento</mat-option>
@@ -33,20 +33,20 @@
 
       <mat-form-field>
         <mat-label>Frequência</mat-label>
-        <mat-select [(ngModel)]="receitaTratamento.frequency" placeholder="Escolha a frequência">
-          <mat-option value="salario">Diário</mat-option>
-          <mat-option value="aluguel">Semanal</mat-option>
-          <mat-option value="rendimento">Quinzenal</mat-option>
-          <mat-option value="rendimento">Mensal</mat-option>
-          <mat-option value="rendimento">Trimestral</mat-option>
-          <mat-option value="rendimento">Semestral</mat-option>
-          <mat-option value="rendimento">Anual</mat-option>
+        <mat-select [(ngModel)]="receitaTratamento.frequency" placeholder="Escolha a frequência" required>
+          <mat-option value="diario">Diário</mat-option>
+          <mat-option value="semanal">Semanal</mat-option>
+          <mat-option value="quinzenal">Quinzenal</mat-option>
+          <mat-option value="mensal">Mensal</mat-option>
+          <mat-option value="trimestral">Trimestral</mat-option>
+          <mat-option value="semestral">Semestral</mat-option>
+          <mat-option value="anual">Anual</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Origem</mat-label>
-        <input matInput [(ngModel)]="receitaTratamento.origin" placeholder="Origem da receita" />
+        <input matInput [(ngModel)]="receitaTratamento.origin" placeholder="Origem da receita" required/>
       </mat-form-field>
 
       <mat-form-field>
