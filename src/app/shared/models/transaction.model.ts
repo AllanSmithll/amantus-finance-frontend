@@ -1,11 +1,11 @@
 export abstract class Transaction {
     protected _id: string = "";
-    protected _description: string = "";
-    protected _value: number = 0;
-    protected _date: Date;
-    protected _category: string = "";
-    protected _frequency?: string = "";
-    protected _add_information?: string = "";
+    _description: string = "";
+    _value: number = 0;
+    _date: Date;
+    _category: string = "";
+    _frequency?: string = "";
+    _add_information?: string = "";
 
     protected constructor(id: string, description: string, value: number,
                           date: Date, category: string,

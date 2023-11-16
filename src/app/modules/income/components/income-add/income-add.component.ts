@@ -14,11 +14,11 @@ export class IncomeAddComponent {
   mostrarErro: boolean = false;
 
   constructor(private incomeService: IncomeService) {
-    this.receitaTratamento = new Income('', 0, new Date(), '', '', '');
+    this.receitaTratamento = new Income('', 0, new Date(), '', '', '', '');
   }
 
   cadastrar(): void {
-    
+
     this.incomeService.register(this.receitaTratamento).subscribe(
       () => {
         alert('Receita cadastrada com sucesso!');

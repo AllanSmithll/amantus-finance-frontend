@@ -11,6 +11,41 @@
     }
   ],
   "incomes": [
-    
+    {
+      "_id": "1c2ad27b-fd65-48f8-91f3-742915f862a1",
+      "_description": "Massa1",
+      "_value": 10,
+      "_category": "Salário",
+      "_frequency": "Quinzenal",
+      "_add_information": "Brazilian",
+      "_date": "2020-10-10",
+      "_origin": "Brasil",
+      "_userId": "",
+      "id": 1
+    },
+    {
+      "_id": "07d5ee8f-6d98-4203-8216-da4a6301c280",
+      "_description": "Massa2",
+      "_value": 100,
+      "_category": "Salário",
+      "_frequency": "Trimestral",
+      "_add_information": "Angentinian",
+      "_date": "2020-02-20",
+      "_origin": "Argentina",
+      "_userId": "",
+      "id": 2
+    },
+    {
+      "_id": "ec65474b-b004-485a-b7d4-a55ab02e0d58",
+      "_description": "Massa3",
+      "_value": 1000,
+      "_category": "Aluguel",
+      "_frequency": "Trimestral",
+      "_add_information": "Germanian",
+      "_date": "1010-10-10",
+      "_origin": "Germany",
+      "_userId": "",
+      "id": 3
+    }
   ]
 }
