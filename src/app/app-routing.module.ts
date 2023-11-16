@@ -7,7 +7,7 @@ import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {DashboardComponent} from "./modules/dashboard/components/dashboard/dashboard.component";
 import { IncomeListComponent } from './modules/income/components/income-list/income-list.component';
 import { IncomeAddComponent } from './modules/income/components/income-add/income-add.component';
-import { IncomeComponent } from './modules/income/components/income/income.component';
+import { IncomeEditModalComponent } from './modules/income/components/income-edit-modal/income-edit-modal.component';
 
 const routes: Routes = [
   {
@@ -37,6 +37,9 @@ const routes: Routes = [
     path: 'my-incomes',
     component: IncomeListComponent
   },
+  { 
+    path: 'edit-income/:id', 
+    component: IncomeEditModalComponent },
   {
     path: '**', 
     redirectTo: 'not-found'}
