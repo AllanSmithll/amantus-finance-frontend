@@ -8,6 +8,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class FooterComponent {
   isFooterVisible = true;
+  ano: number = new Date().getFullYear();
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {

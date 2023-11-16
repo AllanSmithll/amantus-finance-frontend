@@ -13,7 +13,7 @@ import {IncomeEditModalComponent} from "../income-edit-modal/income-edit-modal.c
   styleUrls: ['./income-list.component.sass']
 })
 export class IncomeListComponent implements OnInit {
-  displayedColumns: string[] = ['description', 'value', 'date', 'category', 'origin', 'frequency', 'actions'];
+  displayedColumns: string[] = ['id','description', 'value', 'date', 'category', 'origin', 'frequency', 'actions'];
   dataSource = new MatTableDataSource<Income>();
   private unsubscribe$ = new Subject<void>();
 
@@ -39,7 +39,6 @@ export class IncomeListComponent implements OnInit {
       this.incomeService.onIncomeUpdated()
           .pipe(takeUntil(this.unsubscribe$))
           .subscribe(() => this.loadIncomeData());
-      ;
   }
 
   applyFilter(event: Event) {
@@ -48,16 +47,17 @@ export class IncomeListComponent implements OnInit {
   }
 
   editarItem(item: Income): void {
+
     const mappedIncome: any = {
       id: item.id,
-      description: item.description,
-      value: item.value,
-      date: item.date,
-      category: item.category,
-      frequency: item.frequency,
-      origin: item.origin,
-      addInformation: item.addInformation,
-      userId: item.userId,
+      description: item._description,
+      value: item._value,
+      date: item._date,
+      category: item._category,
+      frequency: item._frequency,
+      origin: item._origin,
+      addInformation: item._add_information,
+      userId: item._userId,
     };
 
     const dialogRef = this.dialog.open(IncomeEditModalComponent, {
