@@ -1,0 +1,72 @@
+<app-income-router></app-income-router>
+
+<mat-card class="container p-5">
+    <mat-card-header class="justify-content-center mb-5">
+      <mat-card-title class="fs-3">Cadastro de Receitas</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="card-content-cadastro row row-cols-3">
+
+      <mat-form-field>
+        <mat-label>Descrição</mat-label>
+        <input matInput [(ngModel)]="receitaTratamento.description" placeholder="Descrição da receita" required/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Valor</mat-label>
+        <input matInput type="number" [(ngModel)]="receitaTratamento.value" placeholder="Valor da receita" required/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Data</mat-label>
+        <input matInput type="date"  [(ngModel)]="receitaTratamento.date" placeholder="Data da receita" required/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Categoria</mat-label>
+        <mat-select [(ngModel)]="receitaTratamento.category" placeholder="Escolha a categoria" required>
+            <mat-option value="Salário">Salário</mat-option>
+            <mat-option value="Aluguel">Aluguel</mat-option>
+            <mat-option value="Rendimento">Rendimento</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Frequência</mat-label>
+        <mat-select [(ngModel)]="receitaTratamento.frequency" placeholder="Escolha a frequência" required>
+          <mat-option value="Diário">Diário</mat-option>
+          <mat-option value="Semanal">Semanal</mat-option>
+          <mat-option value="Quinzenal">Quinzenal</mat-option>
+          <mat-option value="Mensal">Mensal</mat-option>
+          <mat-option value="Trimestral">Trimestral</mat-option>
+          <mat-option value="Semestral">Semestral</mat-option>
+          <mat-option value="Anual">Anual</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Origem</mat-label>
+        <input matInput [(ngModel)]="receitaTratamento.origin" placeholder="Origem da receita" required/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Informação adicional</mat-label>
+        <input matInput [(ngModel)]="receitaTratamento.addInformation" placeholder="Adicione algo a mais" />
+      </mat-form-field>
+
+    </mat-card-content>
+
+    <mat-card-footer class="text-center m-3">
+
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="cadastrar()"
+        class="botao"
+      >
+        cadastrar
+      </button>
+
+    </mat-card-footer>
+
+</mat-card>

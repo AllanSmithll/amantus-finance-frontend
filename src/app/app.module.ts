@@ -4,16 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './modules/auth/auth.module';
+import { AuthModule } from './auth/auth.module';
 import { HomeModule } from "./pages/home/home.module";
 import { SharedModule } from "./shared/shared.module";
-import { NavbarComponent } from "./shared/components/navbar/navbar.component";
-import { FooterComponent } from "./shared/components/footer/footer.component";
+import { NavbarComponent } from "./shared/navbar/navbar.component";
+import { FooterComponent } from "./shared/footer/footer.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MaterialModule } from "./shared/material/material.module";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { DashboardModule } from "./modules/dashboard/dashboard.module";
-import { IncomeModule } from './modules/income/income.module';
+import { IncomeModule } from './income/income.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 
@@ -32,7 +31,6 @@ import {MatDialogModule} from "@angular/material/dialog";
     HomeModule,
     FontAwesomeModule,
     MaterialModule,
-    DashboardModule,
     HttpClientModule,
     IncomeModule,
     BrowserAnimationsModule,

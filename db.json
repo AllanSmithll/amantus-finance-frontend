@@ -34,6 +34,18 @@
       "_origin": "Argentina",
       "_userId": "",
       "id": 2
+    },
+    {
+      "_id": "fcc71325-4f08-4330-9a30-f7c3317c836e",
+      "_description": "Massa3",
+      "_value": 100000,
+      "_category": "Salário",
+      "_frequency": "Trimestral",
+      "_add_information": "American",
+      "_date": "2020-10-10",
+      "_origin": "USA",
+      "_userId": "",
+      "id": 3
     }
   ]
 }
