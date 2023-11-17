@@ -10,5 +10,18 @@
       "id": 1
     }
   ],
-  "incomes": []
+  "incomes": [
+    {
+      "_id": "b549e88d-9ef7-4547-a806-ef0fb4ea30b6",
+      "_description": "Receita1",
+      "_value": 1000,
+      "_category": "Rendimento",
+      "_frequency": "Mensal",
+      "_add_information": "Informações adicionais 1",
+      "_date": "2023-11-17",
+      "_origin": "Origem1",
+      "_userId": "",
+      "id": 1
+    }
+  ]
 }
