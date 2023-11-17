@@ -33,15 +33,19 @@ const routes: Routes = [
   },
   {
     path: 'create-income',
-    component: IncomeAddComponent
+    component: IncomeAddComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'my-incomes',
-    component: IncomeListComponent
+    component: IncomeListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'edit-income-router/:id',
-    component: IncomeEditModalComponent },
+    component: IncomeEditModalComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path: '**',
     redirectTo: 'not-found'}
