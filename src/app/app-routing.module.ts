@@ -8,6 +8,7 @@ import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import { IncomeListComponent } from './income/income-list/income-list.component';
 import { IncomeAddComponent } from './income/income-add/income-add.component';
 import { IncomeEditModalComponent } from './income/income-edit-modal/income-edit-modal.component';
+import {AuthGuard} from "./shared/services/auth.guard";
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'create-income',

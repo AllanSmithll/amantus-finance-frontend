@@ -1,6 +1,6 @@
 <nav *ngIf="isNavbarVisible" class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" [routerLink]="['/']"><img src="../../../assets/logo_amantus.png"
+    <a class="navbar-brand" [routerLink]="['/']" [ngClass]="{'disabled-link': varUserIsLoggedIn}"><img src="../../../assets/logo_amantus.png"
                                                       alt="Logo do Amantus Finance"
                                                       class="logo"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -25,7 +25,7 @@
         </li>
         <!-- Exibe apenas quando o usuário estiver logado -->
         <li class="nav-item" *ngIf="varUserIsLoggedIn">
-          <button mat-button color="primary" [routerLink]="['/create-income-router']">
+          <button mat-button color="primary" [routerLink]="['/create-income']">
             Receitas
           </button>
         </li>
