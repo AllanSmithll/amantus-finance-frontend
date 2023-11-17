@@ -13,8 +13,12 @@ export class FooterComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.isFooterVisible = !['/login', '/register'].includes(event.url);
+        this.isFooterVisible = this.shouldShowFooter(event.url);
       }
     });
+  }
+
+  private shouldShowFooter(url: string): boolean {
+    return !['/login', '/register'].includes(url);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from "../services/authentication.service";
+import {AuthenticationService} from "../../shared/services/authentication.service";
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -27,6 +27,6 @@ export class NavbarComponent implements OnInit {
 
   onLogout(): void {
       this.authService.logout();
-      this.router.navigate(["/login"]).then();
+      this.router.navigate(["/"]).then();
   }
 }

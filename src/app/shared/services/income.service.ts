@@ -7,7 +7,7 @@ import { Income } from 'src/app/shared/models/income.model';
   providedIn: 'root'
 })
 export class IncomeService {
-  INCOME_API = 'http://localhost:3000/incomes';
+  INCOME_API: string = 'http://localhost:3000/incomes';
   private incomeUpdated = new Subject<void>();
 
   constructor(private httpClient: HttpClient) { }

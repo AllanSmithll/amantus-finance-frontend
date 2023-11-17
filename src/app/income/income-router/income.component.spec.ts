@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IncomeComponent } from './income.component';
+import { IncomeRouterComponent } from './income.component';
 
 describe('IncomeComponent', () => {
-  let component: IncomeComponent;
-  let fixture: ComponentFixture<IncomeComponent>;
+  let component: IncomeRouterComponent;
+  let fixture: ComponentFixture<IncomeRouterComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [IncomeComponent]
+      declarations: [IncomeRouterComponent]
     });
-    fixture = TestBed.createComponent(IncomeComponent);
+    fixture = TestBed.createComponent(IncomeRouterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
