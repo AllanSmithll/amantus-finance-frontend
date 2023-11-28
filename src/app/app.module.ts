@@ -15,6 +15,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { IncomeModule } from './income/income.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
+import { InterceptorsModule } from './interceptors/interceptors.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     HttpClientModule,
     IncomeModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    InterceptorsModule
   ],
   providers: [],
   exports: [
