@@ -1,6 +1,7 @@
 import { Income } from '../../shared/models/income.model';
 import { Component } from '@angular/core';
 import { IncomeService } from '../../shared/services/income.service';
+import { MenssageService } from 'src/app/shared/services/menssage.service';
 
 @Component({
   selector: 'app-income-router-add',
@@ -13,7 +14,7 @@ export class IncomeAddComponent {
   mensagemErro: string = '';
   mostrarErro: boolean = false;
 
-  constructor(private incomeService: IncomeService) {
+  constructor(private incomeService: IncomeService, private menssageService: MenssageService) {
     this.receitaTratamento = new Income('', 0, new Date(), '', '', '', '');
   }
 
@@ -21,11 +22,11 @@ export class IncomeAddComponent {
 
     this.incomeService.register(this.receitaTratamento).subscribe(
       () => {
-        alert('Receita cadastrada com sucesso!');
+        this.menssageService.showSuccess('Receita cadastrada com sucesso!');
       },
-      error => {
+      (error) => {
+        this.menssageService.showError('Erro ao cadastrar receita!');
         console.error('Erro ao cadastrar receita: ', error);
-        alert('Erro ao cadastrar receita. Por favor, tente novamente');
       }
     )
   }

@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import {MaterialModule} from "../layout/material/material.module";
+import { MaterialModule } from "../layout/material/material.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import {MaterialModule} from "../layout/material/material.module";
     RouterOutlet,
     RouterModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     IncomeAddComponent,

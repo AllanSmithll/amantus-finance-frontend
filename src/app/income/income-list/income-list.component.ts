@@ -1,3 +1,4 @@
+import { MenssageService } from './../../shared/services/menssage.service';
 import { Component, OnInit } from '@angular/core';
 import { Income } from 'src/app/shared/models/income.model';
 import { IncomeService } from '../../shared/services/income.service';
@@ -17,7 +18,7 @@ export class IncomeListComponent implements OnInit {
   dataSource = new MatTableDataSource<Income>();
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private incomeService: IncomeService, private dialog: MatDialog) {}
+  constructor(private incomeService: IncomeService, private dialog: MatDialog, private messageService: MenssageService) {}
 
   ngOnInit(): void {
     this.loadIncomeData();
@@ -85,31 +86,22 @@ export class IncomeListComponent implements OnInit {
     });
   }
 
-  delete(incomeARemover: Income) {
-    this.incomeService.remove(incomeARemover).subscribe((): void => {
-      this.loadIncomeData()
-      }
-    )
-  }
 
-  deleteIncome(income: Income): void {
-    Swal.fire({
-      title: 'Tem certeza?',
-      text: `Você deseja excluir a receita?`,
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Sim, excluir',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.delete(income);
-        Swal.fire(
-          'Excluído!',
-          'A receita foi excluída com sucesso.',
-          'success'
-        );
+  delete(income: Income): void {
+    this.messageService.confirm('Tem certeza?', 'Você deseja excluir a receita?').then((confirmed) => {
+      if (confirmed) {
+        this.incomeService.remove(income).subscribe(
+          () => {
+            this.messageService.showSuccess('Receita excluída com sucesso.');
+            this.loadIncomeData();
+          },
+          (error) => {
+            this.messageService.showError('Erro ao excluir a receita.');
+            console.error(error);
+          }
+        )
       }
-    });
+    })
   }
 
   ngOnDestroy(): void {
