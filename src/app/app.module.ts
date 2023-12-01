@@ -16,6 +16,7 @@ import { IncomeModule } from './income/income.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import { InterceptorsModule } from './interceptors/interceptors.module';
+import { ExpenseModule } from './expense/expense.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { InterceptorsModule } from './interceptors/interceptors.module';
     IncomeModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    InterceptorsModule
+    InterceptorsModule,
+    ExpenseModule
   ],
   providers: [],
   exports: [

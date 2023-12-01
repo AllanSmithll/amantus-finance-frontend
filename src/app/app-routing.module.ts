@@ -9,6 +9,8 @@ import { IncomeListComponent } from './income/income-list/income-list.component'
 import { IncomeAddComponent } from './income/income-add/income-add.component';
 import { IncomeEditModalComponent } from './income/income-edit-modal/income-edit-modal.component';
 import {AuthGuard} from "./shared/services/auth.guard";
+import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
+import { ExpenseAddComponent } from './expense/expense-add/expense-add.component';
 
 const routes: Routes = [
   {
@@ -45,6 +47,14 @@ const routes: Routes = [
     path: 'edit-income-router/:id',
     component: IncomeEditModalComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'my-expenses',
+    component: ExpenseListComponent
+  },
+  {
+    path: 'create-expense',
+    component: ExpenseAddComponent
   },
   {
     path: '**',
