@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import { InterceptorsModule } from './interceptors/interceptors.module';
 import { ExpenseModule } from './expense/expense.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ExpenseModule } from './expense/expense.module';
     BrowserAnimationsModule,
     MatDialogModule,
     InterceptorsModule,
-    ExpenseModule
+    ExpenseModule,
+    DashboardModule
   ],
   providers: [],
   exports: [

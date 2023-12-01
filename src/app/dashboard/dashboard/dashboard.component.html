@@ -1,0 +1,17 @@
+<div *ngIf="dashboardData">
+    <h1>Meu Dashboard</h1>
+  
+    <div class="summary-card">
+      <h2>Total de Receitas</h2>
+      <p>{{ dashboardData.incomeData | json }}</p>
+    </div>
+  
+    <div class="summary-card">
+      <h2>Total de Despesas</h2>
+      <p>{{ dashboardData.expenseData | json }}</p>
+    </div>
+  
+    <!-- Adicione gráficos aqui usando bibliotecas como Chart.js -->
+  
+</div>
+  
