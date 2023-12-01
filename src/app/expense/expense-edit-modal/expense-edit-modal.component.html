@@ -1,1 +1,67 @@
-<p>expense-edit-modal works!</p>
+<h2 mat-dialog-title>Editar Despesa - {{ data.expense.id }}</h2>
+<div mat-dialog-content>
+    <p>Editar detalhes da despesa:</p>
+
+    <form class="row justify-content-center">
+        <mat-form-field>
+            <mat-label>Descrição</mat-label>
+            <input matInput [(ngModel)]="data.expense.description" placeholder="Descrição da despesa"  name="description"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Valor</mat-label>
+            <input matInput type="number" [(ngModel)]="data.expense.value" placeholder="Valor da despesa" name="value"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Data</mat-label>
+            <input matInput type="date"  [(ngModel)]="data.expense.date" placeholder="Data da despesa" name="date"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Categoria</mat-label>
+            <mat-select [(ngModel)]="data.expense.category" placeholder="Escolha a categoria" name="category" required>
+                <mat-option value="Luz">Luz</mat-option>
+                <mat-option value="Água">Água</mat-option>
+                <mat-option value="Energia">Energia</mat-option>
+                <mat-option value="Gás">Gás</mat-option>
+                <mat-option value="Alimentação">Alimentação</mat-option>
+                <mat-option value="Outros">Outros</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Frequência</mat-label>
+            <mat-select [(ngModel)]="data.expense.frequency" placeholder="Escolha a frequência" name="frequency">
+                <mat-option value="Diário">Diário</mat-option>
+                <mat-option value="Semanal">Semanal</mat-option>
+                <mat-option value="Quinzenal">Quinzenal</mat-option>
+                <mat-option value="Mensal">Mensal</mat-option>
+                <mat-option value="Trimestral">Trimestral</mat-option>
+                <mat-option value="Semestral">Semestral</mat-option>
+                <mat-option value="Anual">Anual</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Método de pagamento</mat-label>
+            <mat-select [(ngModel)]="data.expense.paymentMethod" placeholder="Selecione um método de pagamento" name="payment_method" required>
+                <mat-option value="Pix">Pix</mat-option>
+                <mat-option value="Crédito">Crédito</mat-option>
+                <mat-option value="Débito">Débito</mat-option>
+                <mat-option value="Boleto">Boleto</mat-option>
+                <mat-option value="Vale">Vale</mat-option>
+                <mat-option value="Outro">Outro</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Informação adicional</mat-label>
+            <input matInput [(ngModel)]="data.expense.addInformation" placeholder="Adicione algo a mais" name="addInformation" />
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>
