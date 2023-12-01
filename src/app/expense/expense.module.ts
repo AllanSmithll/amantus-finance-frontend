@@ -6,6 +6,8 @@ import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { ExpenseRouterComponent } from './expense-router/expense-router.component';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { ExpenseEditModalComponent } from './expense-edit-modal/expense-edit-modal.component';
+import {MaterialModule} from "../layout/material/material.module";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { ExpenseEditModalComponent } from './expense-edit-modal/expense-edit-mod
   imports: [
     CommonModule,
     RouterOutlet,
-    RouterModule
+    RouterModule,
+    MaterialModule,
+    FormsModule
   ],
   exports: [
     ExpenseAddComponent,

@@ -1,1 +1,80 @@
 <app-expense-router></app-expense-router>
+<mat-card class="container p-5">
+    <mat-card-header class="justify-content-center mb-5">
+        <mat-card-title class="fs-3">Cadastro de Despesas</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="card-content-cadastro row row-cols-3">
+
+        <mat-form-field>
+            <mat-label>Descrição</mat-label>
+            <input matInput [(ngModel)]="transientExpense.description" placeholder="Descrição da despesa" required/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Valor</mat-label>
+            <input matInput type="number" [(ngModel)]="transientExpense.value" placeholder="Valor da despesa" required/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Data</mat-label>
+            <input matInput type="date"  [(ngModel)]="transientExpense.date" placeholder="Data da despesa" required/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Categoria</mat-label>
+            <mat-select [(ngModel)]="transientExpense.category" placeholder="Escolha a categoria" required>
+                <mat-option value="Luz">Luz</mat-option>
+                <mat-option value="Água">Água</mat-option>
+                <mat-option value="Energia">Energia</mat-option>
+                <mat-option value="Gás">Gás</mat-option>
+                <mat-option value="Alimentação">Alimentação</mat-option>
+                <mat-option value="Outros">Outros</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Frequência</mat-label>
+            <mat-select [(ngModel)]="transientExpense.frequency" placeholder="Escolha a frequência" required>
+                <mat-option value="Diário">Diário</mat-option>
+                <mat-option value="Semanal">Semanal</mat-option>
+                <mat-option value="Quinzenal">Quinzenal</mat-option>
+                <mat-option value="Mensal">Mensal</mat-option>
+                <mat-option value="Trimestral">Trimestral</mat-option>
+                <mat-option value="Semestral">Semestral</mat-option>
+                <mat-option value="Anual">Anual</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Método de pagamento</mat-label>
+            <mat-select [(ngModel)]="transientExpense._payment_method" placeholder="Selecione um método de pagamento" required>
+                <mat-option value="Pix">Pix</mat-option>
+                <mat-option value="Crédito">Crédito</mat-option>
+                <mat-option value="Débito">Débito</mat-option>
+                <mat-option value="Boleto">Boleto</mat-option>
+                <mat-option value="Vale">Vale</mat-option>
+                <mat-option value="Outro">Outro</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Informação adicional</mat-label>
+            <input matInput [(ngModel)]="transientExpense.addInformation" placeholder="Adicione algo a mais" />
+        </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-footer class="text-center m-3">
+
+        <button
+                mat-raised-button
+                color="primary"
+                (click)="create()"
+                class="botao"
+        >
+            Cadastrar
+        </button>
+
+    </mat-card-footer>
+
+</mat-card>

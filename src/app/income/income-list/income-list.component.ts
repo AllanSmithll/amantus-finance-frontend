@@ -51,14 +51,14 @@ export class IncomeListComponent implements OnInit {
 
     const mappedIncome: any = {
       id: item.id,
-      description: item._description,
-      value: item._value,
-      date: item._date,
-      category: item._category,
-      frequency: item._frequency,
-      origin: item._origin,
-      addInformation: item._add_information,
-      userId: item._userId,
+      description: item.description,
+      value: item.value,
+      date: item.date,
+      category: item.category,
+      frequency: item.frequency,
+      origin: item.origin,
+      addInformation: item.addInformation,
+      userId: item.userId,
     };
 
     const dialogRef = this.dialog.open(IncomeEditModalComponent, {

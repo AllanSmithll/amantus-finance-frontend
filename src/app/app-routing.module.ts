@@ -50,11 +50,13 @@ const routes: Routes = [
   },
   {
     path: 'my-expenses',
-    component: ExpenseListComponent
+    component: ExpenseListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'create-expense',
-    component: ExpenseAddComponent
+    component: ExpenseAddComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
