@@ -1,10 +1,10 @@
 import {Transaction} from "./transaction.model";
+import {v4 as uuidv4} from "uuid";
 
 export class Expense extends Transaction {
-    readonly _payment_method: string = "";
+    _payment_method: string = "";
 
     constructor(
-        id: string,
         description: string,
         value: number,
         date: Date,
@@ -13,11 +13,15 @@ export class Expense extends Transaction {
         payment_method: string,
         add_information: string
     ) {
-        super(id, description, value, date, category, frequency, add_information);
+        super(uuidv4(), description, value, date, category, frequency, add_information);
         this._payment_method = payment_method;
     }
 
-    get payment_method(): string {
-      return this._payment_method;
+    get paymentMethod(): string {
+        return this._payment_method;
+    }
+
+    set paymentMethod(payment_method: string) {
+        this._payment_method = payment_method;
     }
 }
