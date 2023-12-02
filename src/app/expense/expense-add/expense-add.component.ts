@@ -12,7 +12,7 @@ export class ExpenseAddComponent {
   transientExpense: Expense;
 
   constructor(private expenseService: ExpenseService, private menssageService: MenssageService) {
-    this.transientExpense = new Expense('', 0, new Date(), '',
+    this.transientExpense = new Expense('', '', 0, new Date(), '',
         '', '', '', '');
   }
 

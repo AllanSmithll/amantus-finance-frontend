@@ -3,6 +3,7 @@ import {v4 as uuidv4} from "uuid";
 
 export class Expense extends Transaction {
     constructor(
+        id: string,
         description: string,
         value: number,
         date: Date,
@@ -12,6 +13,6 @@ export class Expense extends Transaction {
         user_id: string,
         add_information: string
     ) {
-      super(uuidv4(), description, value, date, category, frequency, user_id, add_information);
+      super(id, description, value, date, category, frequency, user_id, add_information);
     }
 }
