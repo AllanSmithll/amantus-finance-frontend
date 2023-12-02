@@ -4,13 +4,13 @@ import {LoginComponent} from './auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {HomeComponent} from "./pages/home/home/home.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
-import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import { IncomeListComponent } from './income/income-list/income-list.component';
 import { IncomeAddComponent } from './income/income-add/income-add.component';
 import { IncomeEditModalComponent } from './income/income-edit-modal/income-edit-modal.component';
 import {AuthGuard} from "./shared/services/auth.guard";
 import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
 import { ExpenseAddComponent } from './expense/expense-add/expense-add.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 const routes: Routes = [
   {

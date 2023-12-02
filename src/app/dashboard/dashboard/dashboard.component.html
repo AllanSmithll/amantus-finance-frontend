@@ -1,0 +1,43 @@
+<div class="text-center">
+  <p class="dashboard display-6">Seu Dashboard</p>
+</div>
+
+<div class="container mt-4">
+
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <mat-card class="text-center p-3">
+        <div>
+          <h2>Gráfico de Linha</h2>
+          <p>Visualize a tendência ao longo do tempo...</p>
+          <canvas id="linechart"></canvas>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center column-gap-5">
+
+    <div class="col-md-4" *ngIf="showPie">
+      <mat-card class="text-center p-3">
+        <div>
+          <h2>Gráfico de Pizza</h2>
+          <p>Soma Total de receitas por Categoria</p>
+          <canvas id="piechart"></canvas>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-md-4" *ngIf="showDough">
+      <mat-card class="text-center p-3">
+        <div>
+          <h2>Gráfico de Rosca</h2>
+          <p>Soma Total de despesas por Frequência</p>
+          <canvas id="doughnutchart"></canvas>
+        </div>
+      </mat-card>
+    </div>
+    
+  </div>
+
+</div>
