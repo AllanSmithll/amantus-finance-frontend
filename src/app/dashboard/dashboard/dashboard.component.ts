@@ -88,8 +88,8 @@ export class DashboardComponent implements OnInit {
     const groupedData: Map<string, number> = new Map();
 
     this.chartIncomeData.forEach((income) => {
-      const category = income._category;
-      const value = income._value;
+      const category = income.category;
+      const value = income.value;
 
       if (groupedData.has(category)) {
         groupedData.set(category, groupedData.get(category)! + value);
@@ -129,15 +129,15 @@ export class DashboardComponent implements OnInit {
       const groupedData: Map<string, number> = new Map();
 
       this.chartExpenseData.forEach((expense) => {
-        const frequency = expense._frequency;
+        const frequency = expense.frequency;
 
         if (groupedData.has(frequency)) {
           groupedData.set(
             frequency,
-            groupedData.get(frequency)! + expense._value
+            groupedData.get(frequency)! + expense.value
           );
         } else {
-          groupedData.set(frequency, expense._value);
+          groupedData.set(frequency, expense.value);
         }
       });
 

@@ -16,7 +16,7 @@ export class IncomeAddComponent {
 
   constructor(private incomeService: IncomeService, private menssageService: MenssageService) {
     this.receitaTratamento = new Income('', 0, new Date(), '',
-        '', '');
+        '', '', '', '', '');
   }
 
   cadastrar(): void {
