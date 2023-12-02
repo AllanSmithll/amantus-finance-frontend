@@ -15,8 +15,8 @@ export class IncomeAddComponent {
   mostrarErro: boolean = false;
 
   constructor(private incomeService: IncomeService, private menssageService: MenssageService) {
-    this.receitaTratamento = new Income('', 0, new Date(), '',
-        '', '');
+    this.receitaTratamento = new Income('', '', 0, new Date(), '',
+        '', '', '', '');
   }
 
   cadastrar(): void {

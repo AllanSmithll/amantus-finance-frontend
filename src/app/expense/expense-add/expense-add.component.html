@@ -48,7 +48,7 @@
 
         <mat-form-field>
             <mat-label>Método de pagamento</mat-label>
-            <mat-select [(ngModel)]="transientExpense.paymentMethod" placeholder="Selecione um método de pagamento" required>
+            <mat-select [(ngModel)]="transientExpense.payment_method" placeholder="Selecione um método de pagamento" required>
                 <mat-option value="Pix">Pix</mat-option>
                 <mat-option value="Crédito">Crédito</mat-option>
                 <mat-option value="Débito">Débito</mat-option>
@@ -60,7 +60,7 @@
 
         <mat-form-field>
             <mat-label>Informação adicional</mat-label>
-            <input matInput [(ngModel)]="transientExpense.addInformation" placeholder="Adicione algo a mais" />
+            <input matInput [(ngModel)]="transientExpense.add_information" placeholder="Adicione algo a mais" />
         </mat-form-field>
     </mat-card-content>
 

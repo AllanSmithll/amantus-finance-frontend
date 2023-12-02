@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-import { MatCardModule } from '@angular/material/card';
+import {MaterialModule} from "../layout/material/material.module";
 
 @NgModule({
   declarations: [
@@ -10,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
   ],
   imports: [
     CommonModule,
-    MatCardModule
+    MaterialModule
   ],
   exports: [
     DashboardComponent

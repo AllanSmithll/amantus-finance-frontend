@@ -6,14 +6,7 @@ export abstract class Transaction {
         public date: Date,
         public category: string,
         public frequency: string,
-        public addInformation?: string
+        public user_id: string,
+        public add_information?: string | undefined
     ) {}
-
-    get userId(): string {
-        return this.userId;
-    }
-
-    set userId(userId: string) {
-        this.userId = userId;
-    }
 }
