@@ -57,7 +57,7 @@ export class ExpenseListComponent implements OnInit {
             date: item.date,
             category: item.category,
             frequency: item.frequency,
-            origin: item.paymentMethod,
+            payment_method: item.paymentMethod,
             addInformation: item.addInformation,
             userId: item.userId,
         };
@@ -68,25 +68,24 @@ export class ExpenseListComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            if (result && result.income) {
-                const updatedIncome: any = {
+            if (result && result.expense) {
+                const updatedExpense: any = {
                     id: result.expense.id,
                     _description: result.expense.description,
                     _value: result.expense.value,
                     _date: result.expense.date,
                     _category: result.expense.category,
                     _frequency: result.expense.frequency,
-                    _origin: result.expense.origin,
+                    _origin: result.expense.payment_method,
                     _add_information: result.expense.addInformation,
                     _userId: result.expense.userId,
                 };
-                this.expenseService.update(updatedIncome).subscribe(() => {
+                this.expenseService.update(updatedExpense).subscribe(() => {
                     this.expenseService.notifyExpenseUpdated();
                 });
             }
         });
     }
-
 
     delete(expense: Expense): void {
         this.messageService.confirm('Tem certeza?', 'Você deseja excluir a despesa?')
