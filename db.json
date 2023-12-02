@@ -8,15 +8,6 @@
       "_listIncomes": [],
       "_listExpenses": [],
       "id": 1
-    },
-    {
-      "_email": "alic.victor@academico.ifpb.edu.br",
-      "_password": "@jVu7VFuF#rVe",
-      "_name": "Alic",
-      "_birthdate": "2023-11-14T03:00:00.000Z",
-      "_listIncomes": [],
-      "_listExpenses": [],
-      "id": 2
     }
   ],
   "incomes": [
@@ -27,7 +18,7 @@
       "_category": "Rendimento",
       "_frequency": "Mensal",
       "_add_information": "Informações adicionais 1",
-      "_date": "2023-11-17",
+      "_date": "2023-01-17",
       "_origin": "Origem1",
       "_userId": "",
       "id": 1
@@ -40,9 +31,33 @@
       "_frequency": "Quinzenal",
       "_add_information": "ammamam",
       "_userId": "",
-      "_date": "2020-10-10",
+      "_date": "2020-02-10",
       "_origin": "nananna",
       "id": 2
+    },
+    {
+      "_id": "d863a6af-2078-4e87-bb17-55197c583a5f",
+      "_description": "Teste",
+      "_value": 2000,
+      "_category": "Aluguel",
+      "_frequency": "Mensal",
+      "_add_information": "",
+      "_userId": "",
+      "_date": "2020-03-10",
+      "_origin": "Br",
+      "id": 3
+    },
+    {
+      "_id": "ca01645a-e2c4-4477-b1b7-1ea575773272",
+      "_description": "Teste2",
+      "_value": 1500,
+      "_category": "Salário",
+      "_frequency": "Quinzenal",
+      "_add_information": "a",
+      "_userId": "",
+      "_date": "2012-04-12",
+      "_origin": "bR",
+      "id": 4
     }
   ],
   "expenses": [
@@ -54,21 +69,45 @@
       "_frequency": "Semanal",
       "_add_information": "jjjsjsjss",
       "_userId": "",
-      "_date": "2020-10-10",
+      "_date": "2020-01-10",
       "_payment_method": "Débito",
       "id": 1
     },
     {
-      "_id": "0d64d1f9-d8c1-427e-abc7-896f9a89cb14",
-      "_description": "aaaaa",
-      "_value": 1000,
-      "_category": "Alimentação",
-      "_frequency": "Mensal",
-      "_add_information": "aaaaaaaaaa",
+      "_id": "14ff2552-02fb-42f6-a505-6fcf6c2efc08",
+      "_description": "A",
+      "_value": 10,
+      "_category": "",
+      "_frequency": "Diário",
+      "_add_information": "",
       "_userId": "",
-      "_date": "2020-10-10",
-      "_payment_method": "Boleto",
+      "_date": "2020-02-10",
+      "_payment_method": "",
       "id": 2
+    },
+    {
+      "_id": "14ff2552-02fb-42f6-a505-6fcf6c2efc08",
+      "_description": "B",
+      "_value": 2000,
+      "_category": "",
+      "_frequency": "Anual",
+      "_add_information": "",
+      "_userId": "",
+      "_date": "2020-03-10",
+      "_payment_method": "",
+      "id": 3
+    },
+    {
+      "_id": "14ff2552-02fb-42f6-a505-6fcf6c2efc08",
+      "_description": "C",
+      "_value": 500,
+      "_category": "",
+      "_frequency": "Mensal",
+      "_add_information": "",
+      "_userId": "",
+      "_date": "2020-04-10",
+      "_payment_method": "",
+      "id": 4
     }
   ]
 }
