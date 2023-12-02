@@ -6,7 +6,7 @@ export abstract class Transaction {
     protected _category: string = "";
     protected _frequency?: string = "";
     protected _add_information?: string = "";
-    private _userId: string = "";
+    protected _userId: string = "";
 
     protected constructor(id: string, description: string, value: number,
                           date: Date, category: string,

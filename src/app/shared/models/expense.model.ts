@@ -2,7 +2,7 @@ import {Transaction} from "./transaction.model";
 import {v4 as uuidv4} from "uuid";
 
 export class Expense extends Transaction {
-    _payment_method: string = "";
+    private _payment_method: string = "";
 
     constructor(
         description: string,

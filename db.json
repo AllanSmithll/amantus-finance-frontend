@@ -8,67 +8,8 @@
       "_listIncomes": [],
       "_listExpenses": [],
       "id": 1
-    },
-    {
-      "_email": "alic.victor@academico.ifpb.edu.br",
-      "_password": "@jVu7VFuF#rVe",
-      "_name": "Alic",
-      "_birthdate": "2023-11-14T03:00:00.000Z",
-      "_listIncomes": [],
-      "_listExpenses": [],
-      "id": 2
     }
   ],
-  "incomes": [
-    {
-      "_id": "b549e88d-9ef7-4547-a806-ef0fb4ea30b6",
-      "_description": "Receita1",
-      "_value": 1000,
-      "_category": "Rendimento",
-      "_frequency": "Mensal",
-      "_add_information": "Informações adicionais 1",
-      "_date": "2023-11-17",
-      "_origin": "Origem1",
-      "_userId": "",
-      "id": 1
-    },
-    {
-      "_id": "cb85ad73-8279-4eca-87c0-9cee792d1ec5",
-      "_description": "ajjajiaijaij",
-      "_value": 19,
-      "_category": "Rendimento",
-      "_frequency": "Quinzenal",
-      "_add_information": "ammamam",
-      "_userId": "",
-      "_date": "2020-10-10",
-      "_origin": "nananna",
-      "id": 2
-    }
-  ],
-  "expenses": [
-    {
-      "_id": "b2a007f8-9287-4941-bea0-37211e4e0354",
-      "_description": "aaaaaaaa",
-      "_value": 10,
-      "_category": "Luz",
-      "_frequency": "Semanal",
-      "_add_information": "jjjsjsjss",
-      "_userId": "",
-      "_date": "2020-10-10",
-      "_payment_method": "Débito",
-      "id": 1
-    },
-    {
-      "_id": "0d64d1f9-d8c1-427e-abc7-896f9a89cb14",
-      "_description": "aaaaa",
-      "_value": 1000,
-      "_category": "Alimentação",
-      "_frequency": "Mensal",
-      "_add_information": "aaaaaaaaaa",
-      "_userId": "",
-      "_date": "2020-10-10",
-      "_payment_method": "Boleto",
-      "id": 2
-    }
-  ]
+  "incomes": [],
+  "expenses": []
 }
