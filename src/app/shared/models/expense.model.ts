@@ -2,26 +2,17 @@ import {Transaction} from "./transaction.model";
 import {v4 as uuidv4} from "uuid";
 
 export class Expense extends Transaction {
-    _payment_method: string = "";
-
     constructor(
+        id: string,
         description: string,
         value: number,
         date: Date,
         category: string,
         frequency: string,
-        payment_method: string,
+        public payment_method: string,
+        user_id: string,
         add_information: string
     ) {
-        super(uuidv4(), description, value, date, category, frequency, add_information);
-        this._payment_method = payment_method;
-    }
-
-    get paymentMethod(): string {
-        return this._payment_method;
-    }
-
-    set paymentMethod(payment_method: string) {
-        this._payment_method = payment_method;
+      super(id, description, value, date, category, frequency, user_id, add_information);
     }
 }

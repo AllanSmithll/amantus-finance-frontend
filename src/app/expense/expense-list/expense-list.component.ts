@@ -50,43 +50,20 @@ export class ExpenseListComponent implements OnInit {
     }
 
     editItem(item: Expense): void {
-        const mappedExpense: any = {
-            id: item.id,
-            description: item.description,
-            value: item.value,
-            date: item.date,
-            category: item.category,
-            frequency: item.frequency,
-            origin: item.paymentMethod,
-            addInformation: item.addInformation,
-            userId: item.userId,
-        };
-
         const dialogRef = this.dialog.open(ExpenseEditModalComponent, {
             width: '400px',
-            data: {expense: {...mappedExpense}}
+            data: {expense: {...item}}
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            if (result && result.income) {
-                const updatedIncome: any = {
-                    id: result.expense.id,
-                    _description: result.expense.description,
-                    _value: result.expense.value,
-                    _date: result.expense.date,
-                    _category: result.expense.category,
-                    _frequency: result.expense.frequency,
-                    _origin: result.expense.origin,
-                    _add_information: result.expense.addInformation,
-                    _userId: result.expense.userId,
-                };
-                this.expenseService.update(updatedIncome).subscribe(() => {
+            if (result && result.expense) {
+                const updatedExpense: any = { ...result.expense };
+                this.expenseService.update(updatedExpense).subscribe(() => {
                     this.expenseService.notifyExpenseUpdated();
                 });
             }
         });
     }
-
 
     delete(expense: Expense): void {
         this.messageService.confirm('Tem certeza?', 'Você deseja excluir a despesa?')

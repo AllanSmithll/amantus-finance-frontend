@@ -49,36 +49,14 @@ export class IncomeListComponent implements OnInit {
 
   editarItem(item: Income): void {
 
-    const mappedIncome: any = {
-      id: item.id,
-      description: item.description,
-      value: item.value,
-      date: item.date,
-      category: item.category,
-      frequency: item.frequency,
-      origin: item.origin,
-      addInformation: item.addInformation,
-      userId: item.userId,
-    };
-
     const dialogRef = this.dialog.open(IncomeEditModalComponent, {
       width: '400px',
-      data: { income: { ...mappedIncome } }
+      data: { income: { ...item } }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.income) {
-        const updatedIncome: any = {
-          id: result.income.id,
-          _description: result.income.description,
-          _value: result.income.value,
-          _date: result.income.date,
-          _category: result.income.category,
-          _frequency: result.income.frequency,
-          _origin: result.income.origin,
-          _add_information: result.income.addInformation,
-          _userId: result.income.userId,
-        };
+        const updatedIncome: any = { ...result.income };
         this.incomeService.update(updatedIncome).subscribe(() => {
           this.incomeService.notifyIncomeUpdated();
         });
