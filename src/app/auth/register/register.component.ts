@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { Router } from '@angular/router';
+import { MenssageService } from 'src/app/shared/services/menssage.service';
 
 @Component({
   selector: 'app-register',
@@ -8,20 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.sass'],
 })
 export class RegisterComponent {
-  error: string = '';
   constructor(
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private menssageService: MenssageService
   ) {}
 
   onRegister(name: string, email: string, password: string, birthdate: Date): void {
     this.authService.register(name, email, password, birthdate).subscribe((registrationSuccessful: boolean) => {
         if (registrationSuccessful) {
           this.router.navigate(['/login']).then(() => {
-            this.error = '';
           });
         } else {
-          this.error = 'Usuário existente. Por favor, entre em sua conta.';
+          this.menssageService.showInfo('Usuário existente. Por favor, entre em sua conta.')
         }
       });
   }

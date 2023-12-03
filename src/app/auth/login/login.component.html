@@ -1,30 +1,65 @@
-<div class="custom-login-bg">
-  <div class="container d-flex">
-      <div class="container-position row justify-content-center align-items-center">
-        <div class="col-md-5">
-          <div class="card border border-light-subtle border-5 rounded">
-              <h2 class="text-center mt-4 fw-bold">Login</h2>
-            <div class="card-body p-3">
-              <form #loginForm="ngForm" (ngSubmit)="onLogin(email.value, password.value)">
-                <div class="mb-3">
-                  <label for="email" class="form-label fw-semibold">Email</label>
-                  <input type="email" class="form-control" #email id="email" placeholder="Seu email" required>
-                </div>
-                <div class="mb-3">
-                  <label for="password" class="form-label fw-semibold">Senha</label>
-                  <input type="password" class="form-control" #password id="password" placeholder="Sua senha" required>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary mt-3">Entrar</button>
-                </div>
-              </form>
-            <p class="text-danger" *ngIf="error">{{ error }}</p>
+<div class="container d-flex justify-content-center align-items-center">
+  <mat-card class="rounded w-75">
+    <div class="row justify-content-center align-items-center gap-5">
+      <div class="col-md-5 row">
+        <img
+          mat-card-image
+          src="../../../assets/undraw_login_re_4vu2.svg"
+          width="400px"
+          height="400px"
+          alt="imagem de login"
+        />
+        <a class="create-account text-center mb-5" [routerLink]="['/register']"
+          >Crie uma conta</a
+        >
+      </div>
+
+      <div class="col-md-5">
+        <p class="display-6 fw-bold mb-5 text-center">Login</p>
+
+        <div>
+          <form
+            #loginForm="ngForm"
+            (ngSubmit)="onLogin(email.value, password.value)"
+          >
+            <div class="mb-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"
+                  ><fa-icon [icon]="['fas', 'envelope']"></fa-icon
+                ></span>
+                <input
+                  type="email"
+                  class="form-control"
+                  #email
+                  id="email"
+                  placeholder="Seu email"
+                  required
+                />
+              </div>
             </div>
-            <div class="card-footer">
-              <p class="text-center small my-2">Não tem uma conta? <a [routerLink]="['/register']">Registre-se</a></p>
+            <div class="mb-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"
+                  ><fa-icon [icon]="['fas', 'lock']"></fa-icon
+                ></span>
+                <input
+                  type="password"
+                  class="form-control"
+                  #password
+                  id="password"
+                  placeholder="Sua senha"
+                  required
+                />
+              </div>
             </div>
-          </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mt-3 w-25">
+                Entrar
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-  </div>
+    </div>
+  </mat-card>
 </div>
