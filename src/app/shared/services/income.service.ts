@@ -44,5 +44,4 @@ export class IncomeService {
   notifyIncomeUpdated() {
     this.incomeUpdated.next();
   }
-
 }

@@ -18,6 +18,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { InterceptorsModule } from './interceptors/interceptors.module';
 import { ExpenseModule } from './expense/expense.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import {FirestoreModule} from "./firestore/firestore.module";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     MatDialogModule,
     InterceptorsModule,
     ExpenseModule,
-    DashboardModule
+    DashboardModule,
+    FirestoreModule
   ],
   providers: [],
   exports: [
