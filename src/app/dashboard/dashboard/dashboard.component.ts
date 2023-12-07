@@ -1,10 +1,11 @@
+import { IncomeFirestoreService } from './../../shared/services/income-firestore.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
-import { IncomeService } from 'src/app/shared/services/income.service';
 import { Income } from 'src/app/shared/models/income.model';
 import { ExpenseService } from 'src/app/shared/services/expense.service';
 import { Expense } from 'src/app/shared/models/expense.model';
+import { ExpenseFirestoreService } from 'src/app/shared/services/expense-firestore.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,12 +23,12 @@ export class DashboardComponent implements OnInit {
   showDough: boolean = true;
 
   constructor(
-    private incomeService: IncomeService,
-    private expenseService: ExpenseService
+    private incomeFirestoreService: IncomeFirestoreService,
+    private expenseFirestoreService: ExpenseFirestoreService
   ) {}
 
   ngOnInit(): void {
-    this.incomeService.list().subscribe((result) => {
+    this.incomeFirestoreService.listar().subscribe((result) => {
       this.chartIncomeData = result;
       if (this.chartIncomeData && this.chartIncomeData.length > 0) {
         this.renderPieChart();
@@ -35,7 +36,7 @@ export class DashboardComponent implements OnInit {
         this.showPie = false;
       }
     });
-    this.expenseService.list().subscribe((result) => {
+    this.expenseFirestoreService.listar().subscribe((result) => {
       this.chartExpenseData = result;
       if (this.chartExpenseData && this.chartExpenseData.length > 0) {
         this.renderDoughnutChart();
@@ -43,8 +44,8 @@ export class DashboardComponent implements OnInit {
         this.showDough = false;
       }
     });
-    this.incomeService.list().subscribe(incomes => {
-      this.expenseService.list().subscribe(expenses => {
+    this.incomeFirestoreService.listar().subscribe(incomes => {
+      this.expenseFirestoreService.listar().subscribe(expenses => {
         this.lineChartData = {
           labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
           datasets: [
@@ -91,10 +92,10 @@ export class DashboardComponent implements OnInit {
       const category = income.category;
       const value = income.value;
 
-      if (groupedData.has(category)) {
-        groupedData.set(category, groupedData.get(category)! + value);
+      if (groupedData.has(category!)) {
+        groupedData.set(category!, groupedData.get(category!)! + value!);
       } else {
-        groupedData.set(category, value);
+        groupedData.set(category!, value!);
       }
     });
 
@@ -131,13 +132,13 @@ export class DashboardComponent implements OnInit {
       this.chartExpenseData.forEach((expense) => {
         const frequency = expense.frequency;
 
-        if (groupedData.has(frequency)) {
+        if (groupedData.has(frequency!)) {
           groupedData.set(
-            frequency,
-            groupedData.get(frequency)! + expense.value
+            frequency!,
+            groupedData.get(frequency!)! + expense.value!
           );
         } else {
-          groupedData.set(frequency, expense.value);
+          groupedData.set(frequency!, expense.value!);
         }
       });
 
@@ -179,8 +180,8 @@ export class DashboardComponent implements OnInit {
     const valuesByMonth: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     data.forEach(item => {
-      const monthIndex = new Date(item._date).getMonth();
-      valuesByMonth[monthIndex] += item._value;
+      const monthIndex = new Date(item.date).getMonth();
+      valuesByMonth[monthIndex] += item.value;
     });
 
     return valuesByMonth;

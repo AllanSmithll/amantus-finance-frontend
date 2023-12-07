@@ -3,9 +3,9 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Subject, takeUntil} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {MenssageService} from "../../shared/services/menssage.service";
-import {ExpenseService} from "../../shared/services/expense.service";
 import {Expense} from "../../shared/models/expense.model";
 import {ExpenseEditModalComponent} from "../expense-edit-modal/expense-edit-modal.component";
+import { ExpenseFirestoreService } from 'src/app/shared/services/expense-firestore.service';
 
 @Component({
     selector: 'app-expense-list',
@@ -18,7 +18,7 @@ export class ExpenseListComponent implements OnInit {
     dataSource = new MatTableDataSource<Expense>();
     private unsubscribe$ = new Subject<void>();
 
-    constructor(private expenseService: ExpenseService, private dialog: MatDialog,
+    constructor(private expenseFirestoreService: ExpenseFirestoreService, private dialog: MatDialog,
                 private messageService: MenssageService) {
     }
 
@@ -28,7 +28,7 @@ export class ExpenseListComponent implements OnInit {
     }
 
     private loadExpenseData(): void {
-        this.expenseService.list().subscribe(
+        this.expenseFirestoreService.listar().subscribe(
             (data: Expense[]) => {
                 this.dataSource.data = data;
             },
@@ -39,7 +39,7 @@ export class ExpenseListComponent implements OnInit {
     }
 
     private subscribeToExpenseUpdates(): void {
-        this.expenseService.onExpenseUpdated()
+        this.expenseFirestoreService.onExpenseUpdated()
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe(() => this.loadExpenseData());
     }
@@ -58,8 +58,8 @@ export class ExpenseListComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
             if (result && result.expense) {
                 const updatedExpense: any = { ...result.expense };
-                this.expenseService.update(updatedExpense).subscribe(() => {
-                    this.expenseService.notifyExpenseUpdated();
+                this.expenseFirestoreService.atualizar(updatedExpense).subscribe(() => {
+                    this.expenseFirestoreService.notifyExpenseUpdated();
                 });
             }
         });
@@ -69,7 +69,7 @@ export class ExpenseListComponent implements OnInit {
         this.messageService.confirm('Tem certeza?', 'Você deseja excluir a despesa?')
             .then((confirmed) => {
                 if (confirmed) {
-                    this.expenseService.remove(expense).subscribe(
+                    this.expenseFirestoreService.remover(expense).subscribe(
                         () => {
                             this.messageService.showSuccess('Despesa excluída com sucesso.');
                             this.loadExpenseData();

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MenssageService} from "../../shared/services/menssage.service";
 import {Expense} from "../../shared/models/expense.model";
 import {ExpenseService} from "../../shared/services/expense.service";
+import { ExpenseFirestoreService } from 'src/app/shared/services/expense-firestore.service';
 
 @Component({
   selector: 'app-expense-add',
@@ -11,13 +12,12 @@ import {ExpenseService} from "../../shared/services/expense.service";
 export class ExpenseAddComponent {
   transientExpense: Expense;
 
-  constructor(private expenseService: ExpenseService, private menssageService: MenssageService) {
-    this.transientExpense = new Expense('', '', 0, new Date(), '',
-        '', '', '', '');
+  constructor(private expenseFirestoreService: ExpenseFirestoreService, private menssageService: MenssageService) {
+    this.transientExpense = new Expense('');
   }
 
   create(): void {
-    this.expenseService.register(this.transientExpense).subscribe(
+    this.expenseFirestoreService.cadastrar(this.transientExpense).subscribe(
         () => {
           this.menssageService.showSuccess('Despesa cadastrada com sucesso!');
         },
