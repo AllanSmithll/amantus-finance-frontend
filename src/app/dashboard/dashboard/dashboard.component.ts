@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.incomeFirestoreService.listar().subscribe((result) => {
+    this.incomeFirestoreService.list().subscribe((result) => {
       this.chartIncomeData = result;
       if (this.chartIncomeData && this.chartIncomeData.length > 0) {
         this.renderPieChart();
@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
         this.showPie = false;
       }
     });
-    this.expenseFirestoreService.listar().subscribe((result) => {
+    this.expenseFirestoreService.list().subscribe((result) => {
       this.chartExpenseData = result;
       if (this.chartExpenseData && this.chartExpenseData.length > 0) {
         this.renderDoughnutChart();
@@ -44,8 +44,8 @@ export class DashboardComponent implements OnInit {
         this.showDough = false;
       }
     });
-    this.incomeFirestoreService.listar().subscribe(incomes => {
-      this.expenseFirestoreService.listar().subscribe(expenses => {
+    this.incomeFirestoreService.list().subscribe(incomes => {
+      this.expenseFirestoreService.list().subscribe(expenses => {
         this.lineChartData = {
           labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
           datasets: [

@@ -17,7 +17,7 @@ export class ExpenseAddComponent {
   }
 
   create(): void {
-    this.expenseFirestoreService.cadastrar(this.transientExpense).subscribe(
+    this.expenseFirestoreService.register(this.transientExpense).subscribe(
         () => {
           this.menssageService.showSuccess('Despesa cadastrada com sucesso!');
         },

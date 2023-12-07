@@ -26,7 +26,7 @@ export class IncomeListComponent implements OnInit {
   }
 
   private loadIncomeData(): void {
-    this.incomeFirestoreService.listar().subscribe(
+    this.incomeFirestoreService.list().subscribe(
       (data: Income[]) => {
         this.dataSource.data = data;
       },
@@ -57,7 +57,7 @@ export class IncomeListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.income) {
         const updatedIncome: any = { ...result.income };
-        this.incomeFirestoreService.atualizar(updatedIncome).subscribe(() => {
+        this.incomeFirestoreService.update(updatedIncome).subscribe(() => {
           this.incomeFirestoreService.notifyIncomeUpdated();
         });
       }
@@ -68,7 +68,7 @@ export class IncomeListComponent implements OnInit {
   delete(income: Income): void {
     this.messageService.confirm('Tem certeza?', 'Você deseja excluir a receita?').then((confirmed) => {
       if (confirmed) {
-        this.incomeFirestoreService.remover(income).subscribe(
+        this.incomeFirestoreService.remove(income).subscribe(
           () => {
             this.messageService.showSuccess('Receita excluída com sucesso.');
             this.loadIncomeData();

@@ -21,7 +21,7 @@ export class IncomeAddComponent {
 
   cadastrar(): void {
 
-    this.incomeFirestoreService.cadastrar(this.receitaTratamento).subscribe(
+    this.incomeFirestoreService.register(this.receitaTratamento).subscribe(
       () => {
         this.menssageService.showSuccess('Receita cadastrada com sucesso!');
       },

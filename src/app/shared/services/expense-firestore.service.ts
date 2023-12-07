@@ -17,26 +17,28 @@ export class ExpenseFirestoreService {
     this.colecaoReceitas = afs.collection(this.NOME_COLECAO);
   }
 
-  listar(): Observable<Expense[]> {
+  list(): Observable<Expense[]> {
     return this.colecaoReceitas.valueChanges({idField: 'id'});
   }
 
-  cadastrar(expense: Expense): Observable<DocumentReference<Expense>> {
+  register(expense: Expense): Observable<DocumentReference<Expense>> {
     delete expense.id;
     return from(this.colecaoReceitas.add({...expense}));
   }
 
-  remover(expense: Expense): Observable<any> {
+  remove(expense: Expense): Observable<any> {
     return from(this.colecaoReceitas.doc(expense.id).delete());
   }
 
-  pesquisarPorId(id: string): Observable<Expense> {
+  searchById(id: string): Observable<Expense> {
     return this.colecaoReceitas.doc(id).get().pipe(map(document =>
       new Expense(id, document.data())));
   }
 
-  atualizar(expense: Expense): Observable<void> {
-    return from(this.colecaoReceitas.doc(expense.id).update({...expense}));
+  update(expense: Expense): Observable<void> {
+    const id = expense.id;
+    delete expense.id;
+    return from(this.colecaoReceitas.doc(id).update({...expense}));
   }
 
   onExpenseUpdated(): Observable<void> {

@@ -28,7 +28,7 @@ export class ExpenseListComponent implements OnInit {
     }
 
     private loadExpenseData(): void {
-        this.expenseFirestoreService.listar().subscribe(
+        this.expenseFirestoreService.list().subscribe(
             (data: Expense[]) => {
                 this.dataSource.data = data;
             },
@@ -58,7 +58,7 @@ export class ExpenseListComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
             if (result && result.expense) {
                 const updatedExpense: any = { ...result.expense };
-                this.expenseFirestoreService.atualizar(updatedExpense).subscribe(() => {
+                this.expenseFirestoreService.update(updatedExpense).subscribe(() => {
                     this.expenseFirestoreService.notifyExpenseUpdated();
                 });
             }
@@ -69,7 +69,7 @@ export class ExpenseListComponent implements OnInit {
         this.messageService.confirm('Tem certeza?', 'Você deseja excluir a despesa?')
             .then((confirmed) => {
                 if (confirmed) {
-                    this.expenseFirestoreService.remover(expense).subscribe(
+                    this.expenseFirestoreService.remove(expense).subscribe(
                         () => {
                             this.messageService.showSuccess('Despesa excluída com sucesso.');
                             this.loadExpenseData();

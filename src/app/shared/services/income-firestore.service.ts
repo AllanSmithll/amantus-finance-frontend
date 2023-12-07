@@ -16,26 +16,28 @@ export class IncomeFirestoreService {
     this.colecaoReceitas = afs.collection(this.NOME_COLECAO);
   }
 
-  listar(): Observable<Income[]> {
+  list(): Observable<Income[]> {
     return this.colecaoReceitas.valueChanges({idField: 'id'});
   }
 
-  cadastrar(income: Income): Observable<DocumentReference<Income>> {
+  register(income: Income): Observable<DocumentReference<Income>> {
     delete income.id;
     return from(this.colecaoReceitas.add({...income}));
   }
 
-  remover(income: Income): Observable<any> {
+  remove(income: Income): Observable<any> {
     return from(this.colecaoReceitas.doc(income.id).delete());
   }
 
-  pesquisarPorId(id: string): Observable<Income> {
+  searchById(id: string): Observable<Income> {
     return this.colecaoReceitas.doc(id).get().pipe(map(document =>
       new Income(id, document.data())));
   }
 
-  atualizar(income: Income): Observable<void> {
-    return from(this.colecaoReceitas.doc(income.id).update({...income}));
+  update(income: Income): Observable<void> {
+    const id = income.id;
+    delete income.id;
+    return from(this.colecaoReceitas.doc(id).update({...income}));
   }
 
   onIncomeUpdated(): Observable<void> {
@@ -45,5 +47,4 @@ export class IncomeFirestoreService {
   notifyIncomeUpdated() {
     this.incomeUpdated.next();
   }
-
 }
