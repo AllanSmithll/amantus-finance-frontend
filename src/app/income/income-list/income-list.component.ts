@@ -4,9 +4,9 @@ import { Income } from 'src/app/shared/models/income.model';
 import { IncomeService } from '../../shared/services/income.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import Swal from 'sweetalert2';
 import {Subject, takeUntil} from "rxjs";
 import {IncomeEditModalComponent} from "../income-edit-modal/income-edit-modal.component";
+import { IncomeFirestoreService } from 'src/app/shared/services/income-firestore.service';
 
 @Component({
   selector: 'app-income-router-list',
@@ -18,7 +18,7 @@ export class IncomeListComponent implements OnInit {
   dataSource = new MatTableDataSource<Income>();
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private incomeService: IncomeService, private dialog: MatDialog, private messageService: MenssageService) {}
+  constructor(private incomeFirestoreService: IncomeFirestoreService, private dialog: MatDialog, private messageService: MenssageService) {}
 
   ngOnInit(): void {
     this.loadIncomeData();
@@ -26,7 +26,7 @@ export class IncomeListComponent implements OnInit {
   }
 
   private loadIncomeData(): void {
-    this.incomeService.list().subscribe(
+    this.incomeFirestoreService.list().subscribe(
       (data: Income[]) => {
         this.dataSource.data = data;
       },
@@ -37,7 +37,7 @@ export class IncomeListComponent implements OnInit {
   }
 
   private subscribeToIncomeUpdates(): void {
-      this.incomeService.onIncomeUpdated()
+      this.incomeFirestoreService.onIncomeUpdated()
           .pipe(takeUntil(this.unsubscribe$))
           .subscribe(() => this.loadIncomeData());
   }
@@ -57,8 +57,8 @@ export class IncomeListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.income) {
         const updatedIncome: any = { ...result.income };
-        this.incomeService.update(updatedIncome).subscribe(() => {
-          this.incomeService.notifyIncomeUpdated();
+        this.incomeFirestoreService.update(updatedIncome).subscribe(() => {
+          this.incomeFirestoreService.notifyIncomeUpdated();
         });
       }
     });
@@ -68,7 +68,7 @@ export class IncomeListComponent implements OnInit {
   delete(income: Income): void {
     this.messageService.confirm('Tem certeza?', 'Você deseja excluir a receita?').then((confirmed) => {
       if (confirmed) {
-        this.incomeService.remove(income).subscribe(
+        this.incomeFirestoreService.remove(income).subscribe(
           () => {
             this.messageService.showSuccess('Receita excluída com sucesso.');
             this.loadIncomeData();

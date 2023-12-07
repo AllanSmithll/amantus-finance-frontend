@@ -1,3 +1,4 @@
+import { IncomeFirestoreService } from './../../shared/services/income-firestore.service';
 import { Income } from '../../shared/models/income.model';
 import { Component } from '@angular/core';
 import { IncomeService } from '../../shared/services/income.service';
@@ -14,14 +15,13 @@ export class IncomeAddComponent {
   mensagemErro: string = '';
   mostrarErro: boolean = false;
 
-  constructor(private incomeService: IncomeService, private menssageService: MenssageService) {
-    this.receitaTratamento = new Income('', '', 0, new Date(), '',
-        '', '', '', '');
+  constructor(private incomeFirestoreService: IncomeFirestoreService, private menssageService: MenssageService) {
+    this.receitaTratamento = new Income('');
   }
 
   cadastrar(): void {
 
-    this.incomeService.register(this.receitaTratamento).subscribe(
+    this.incomeFirestoreService.register(this.receitaTratamento).subscribe(
       () => {
         this.menssageService.showSuccess('Receita cadastrada com sucesso!');
       },

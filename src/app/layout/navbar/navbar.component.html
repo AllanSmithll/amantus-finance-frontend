@@ -10,20 +10,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navElements">
       <ul class="navbar-nav ms-auto">
-        <!-- Exibe apenas quando o usuário NÃO estiver logado -->
         <li class="nav-item" *ngIf="!varUserIsLoggedIn">
-          <button mat-raised-button [routerLink]="['/login']">
+          <button (click)="isConnected()" mat-button [routerLink]="['/login']">
             <mat-icon>person</mat-icon>
             Login
           </button>
         </li>
         <li class="nav-item" *ngIf="!varUserIsLoggedIn">
-          <button mat-button color="primary" [routerLink]="['/register']">
+          <button (click)="isConnected()" mat-button color="primary" [routerLink]="['/register']">
             <mat-icon>person_add</mat-icon>
             Cadastrar
           </button>
         </li>
-        <!-- Exibe apenas quando o usuário estiver logado -->
         <li class="nav-item" *ngIf="varUserIsLoggedIn">
           <button mat-button color="primary" [routerLink]="['/dashboard']">
             Dashboard
