@@ -31,32 +31,26 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'create-income',
     component: IncomeAddComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'my-incomes',
     component: IncomeListComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'edit-income-router/:id',
     component: IncomeEditModalComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'my-expenses',
     component: ExpenseListComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'create-expense',
     component: ExpenseAddComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: '**',

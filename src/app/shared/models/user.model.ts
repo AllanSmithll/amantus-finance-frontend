@@ -56,11 +56,11 @@ export class User {
   }
 
   get sumIncomes(): number {
-    return this._listIncomes.reduce((sum, income) => sum + income.value, 0);
+    return this._listIncomes.reduce((sum, income) => sum + income.value!, 0);
   }
 
   get sumExpenses(): number {
-    return this._listExpenses.reduce((sum, expense) => sum + expense.value, 0);
+    return this._listExpenses.reduce((sum, expense) => sum + expense.value!, 0);
   }  
 
   get quantIncomes(): number {

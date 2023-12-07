@@ -1,45 +1,50 @@
 import { Injectable } from '@angular/core';
-import {from, map, Observable} from "rxjs";
-import {AngularFirestore, AngularFirestoreCollection, DocumentReference} from "@angular/fire/compat/firestore";
+import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/compat/firestore';
 import { Income } from '../models/income.model';
+import { Observable, Subject, from, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IncomeFirestoreService {
+  private incomeUpdated = new Subject<void>();
 
-  incomeCollection: AngularFirestoreCollection<Income>;
-  NAME_COLLECTION = 'incomes';
+  colecaoReceitas: AngularFirestoreCollection<Income>;
+  NOME_COLECAO = 'incomes';
 
   constructor(private afs: AngularFirestore) {
-    this.incomeCollection = afs.collection(this.NAME_COLLECTION);
+    this.colecaoReceitas = afs.collection(this.NOME_COLECAO);
   }
 
   list(): Observable<Income[]> {
-    return this.incomeCollection.valueChanges({idField: 'id'});
+    return this.colecaoReceitas.valueChanges({idField: 'id'});
   }
 
-  register(income: Income): Observable<Income> {
-    return from(this.incomeCollection.add(income)).pipe(
-      map((documentRef: DocumentReference<Income>) => {
-        return { ...income, id: documentRef.id };
-      })
-    );
+  register(income: Income): Observable<DocumentReference<Income>> {
+    delete income.id;
+    return from(this.colecaoReceitas.add({...income}));
   }
 
   remove(income: Income): Observable<any> {
-    return from(this.incomeCollection.doc(income.id).delete());
+    return from(this.colecaoReceitas.doc(income.id).delete());
+  }
+
+  searchById(id: string): Observable<Income> {
+    return this.colecaoReceitas.doc(id).get().pipe(map(document =>
+      new Income(id, document.data())));
   }
 
   update(income: Income): Observable<void> {
-    return from(this.incomeCollection.doc(income.id).update({...income}));
+    const id = income.id;
+    delete income.id;
+    return from(this.colecaoReceitas.doc(id).update({...income}));
   }
 
   onIncomeUpdated(): Observable<void> {
-    return this.onIncomeUpdated();
+    return this.incomeUpdated.asObservable();
   }
 
   notifyIncomeUpdated() {
-    this.onIncomeUpdated();
+    this.incomeUpdated.next();
   }
 }
