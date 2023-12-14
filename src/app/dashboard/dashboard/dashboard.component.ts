@@ -6,6 +6,7 @@ import { Income } from 'src/app/shared/models/income.model';
 import { ExpenseService } from 'src/app/shared/services/expense.service';
 import { Expense } from 'src/app/shared/models/expense.model';
 import { ExpenseFirestoreService } from 'src/app/shared/services/expense-firestore.service';
+import {IncomeService} from "../../shared/services/income.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -23,8 +24,8 @@ export class DashboardComponent implements OnInit {
   showDough: boolean = true;
 
   constructor(
-    private incomeFirestoreService: IncomeFirestoreService,
-    private expenseFirestoreService: ExpenseFirestoreService
+    private incomeFirestoreService: IncomeService,
+    private expenseFirestoreService: ExpenseService
   ) {}
 
   ngOnInit(): void {

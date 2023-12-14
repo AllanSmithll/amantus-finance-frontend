@@ -17,13 +17,13 @@ export class RegisterComponent {
 
   onRegister(name: string, email: string, password: string, birthdate: Date): void {
     this.authService.register(name, email, password, birthdate).subscribe((registrationSuccessful: boolean) => {
-        if (registrationSuccessful) {
-          this.router.navigate(['/login']).then(() => {
-          });
-        } else {
-          this.menssageService.showInfo('Usuário existente. Por favor, entre em sua conta.')
-        }
-      });
+      if (registrationSuccessful) {
+        this.router.navigate(['/login']).then(() => {
+        });
+      } else {
+        this.menssageService.showInfo('Usuário existente. Por favor, entre em sua conta.')
+      }
+    });
   }
 
   parseDate(dateString: string): Date {
@@ -46,5 +46,5 @@ export class RegisterComponent {
     }
     // @ts-ignore
     return null;
-}
+  }
 }

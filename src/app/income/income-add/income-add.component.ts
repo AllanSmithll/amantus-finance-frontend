@@ -15,7 +15,7 @@ export class IncomeAddComponent {
   mensagemErro: string = '';
   mostrarErro: boolean = false;
 
-  constructor(private incomeFirestoreService: IncomeFirestoreService, private menssageService: MenssageService) {
+  constructor(private incomeFirestoreService: IncomeService, private menssageService: MenssageService) {
     this.receitaTratamento = new Income('');
   }
 
