@@ -17,13 +17,12 @@ export class LoginComponent {
   ) {}
 
   onLogin(email: string, password: string): void {
-    this.router.navigate(['/dashboard']).then()
-    // this.authService.login(email, password).subscribe((isAuthenticated) => {
-    //   if (isAuthenticated) {
-    //     this.router.navigate(['/dashboard']).then();
-    //   } else {
-    //     this.menssageService.showError('Credenciais inválidas. Por favor, verifique seu nome de email e senha.');
-    //   }
-    // });
+    this.authService.login(email, password).subscribe((isAuthenticated) => {
+      if (isAuthenticated) {
+        this.router.navigate(['/dashboard']).then();
+      } else {
+        this.menssageService.showError('Credenciais inválidas. Por favor, verifique seu nome de email e senha.');
+      }
+    });
   }
 }

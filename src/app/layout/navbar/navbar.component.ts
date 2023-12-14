@@ -7,7 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.sass']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   varUserIsLoggedIn: boolean = false;
   isNavbarVisible: boolean = true;
 
@@ -19,13 +19,14 @@ export class NavbarComponent {
     });
   }
 
-  isConnected(): void {
-    this.varUserIsLoggedIn = true;
+  ngOnInit(): void {
+    this.authService.isAuthenticatedUser().subscribe(isAuthenticated => {
+      this.varUserIsLoggedIn = isAuthenticated;
+    });
   }
 
   onLogout(): void {
-      this.authService.logout();
-      this.varUserIsLoggedIn = false;
-      this.router.navigate(["/"]).then();
+    this.authService.logout();
+    this.router.navigate(["/"]).then();
   }
 }

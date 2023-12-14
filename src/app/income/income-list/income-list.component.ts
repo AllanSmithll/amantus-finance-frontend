@@ -18,7 +18,7 @@ export class IncomeListComponent implements OnInit {
   dataSource = new MatTableDataSource<Income>();
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private incomeFirestoreService: IncomeFirestoreService, private dialog: MatDialog, private messageService: MenssageService) {}
+  constructor(private incomeFirestoreService: IncomeService, private dialog: MatDialog, private messageService: MenssageService) {}
 
   ngOnInit(): void {
     this.loadIncomeData();

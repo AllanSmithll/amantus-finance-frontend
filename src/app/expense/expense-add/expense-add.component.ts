@@ -12,7 +12,7 @@ import { ExpenseFirestoreService } from 'src/app/shared/services/expense-firesto
 export class ExpenseAddComponent {
   transientExpense: Expense;
 
-  constructor(private expenseFirestoreService: ExpenseFirestoreService, private menssageService: MenssageService) {
+  constructor(private expenseFirestoreService: ExpenseService, private menssageService: MenssageService) {
     this.transientExpense = new Expense('');
   }
 
