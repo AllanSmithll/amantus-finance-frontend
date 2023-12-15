@@ -7,7 +7,7 @@ import {Expense} from "../models/expense.model";
   providedIn: 'root'
 })
 export class ExpenseService {
-  EXPENSE_API: string = 'http://localhost:3000/expenses';
+  EXPENSE_API: string = 'http://localhost:8080/expenses';
   private expenseUpdated = new Subject<void>();
 
   constructor(private httpClient: HttpClient) { }
