@@ -9,38 +9,48 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navElements">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto gap-4">
         <li class="nav-item" *ngIf="!varUserIsLoggedIn">
-          <button (click)="isConnected()" mat-button [routerLink]="['/login']">
+          <button class="p-3" (click)="isConnected()" mat-button [routerLink]="['/login']">
             <mat-icon>person</mat-icon>
             Login
           </button>
         </li>
         <li class="nav-item" *ngIf="!varUserIsLoggedIn">
-          <button (click)="isConnected()" mat-button color="primary" [routerLink]="['/register']">
+          <button class="p-3" (click)="isConnected()" mat-button color="primary" [routerLink]="['/register']">
             <mat-icon>person_add</mat-icon>
             Cadastrar
           </button>
         </li>
         <li class="nav-item" *ngIf="varUserIsLoggedIn">
-          <button mat-button color="primary" [routerLink]="['/dashboard']">
+          <button class="p-3" mat-button color="primary" [routerLink]="['/dashboard']">
             Dashboard
           </button>
         </li>
         <li class="nav-item" *ngIf="varUserIsLoggedIn">
-          <button mat-button color="primary" [routerLink]="['/create-income']">
+          <button class="p-3" mat-button color="primary" [routerLink]="['/create-income']">
             Receitas
           </button>
         </li>
         <li class="nav-item" *ngIf="varUserIsLoggedIn">
-          <button mat-button color="primary" [routerLink]="['create-expense']">
+          <button class="p-3" mat-button color="primary" [routerLink]="['create-expense']">
             Despesas
           </button>
         </li>
         <li class="nav-item" *ngIf="varUserIsLoggedIn">
-          <button mat-button color="primary" (click)="onLogout()">
-            Sair
+          <button class="p-3" mat-button color="primary" [matMenuTriggerFor]="menu">
+            <mat-icon class="text-black fs-5">person</mat-icon>
           </button>
+          <mat-menu #menu="matMenu" class="text-black">
+            <button class="p-3" mat-menu-item>
+              <mat-icon>settings</mat-icon>
+              Configurações
+            </button>
+            <button mat-menu-item (click)="onLogout()">
+              <mat-icon>logout</mat-icon>
+              Sair
+            </button>
+          </mat-menu>
         </li>
       </ul>
     </div>
