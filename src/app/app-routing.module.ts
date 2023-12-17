@@ -7,7 +7,7 @@ import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import { IncomeListComponent } from './income/income-list/income-list.component';
 import { IncomeAddComponent } from './income/income-add/income-add.component';
 import { IncomeEditModalComponent } from './income/income-edit-modal/income-edit-modal.component';
-import {AuthGuard} from "./shared/services/auth.guard";
+import { AuthGuard } from "./shared/services/auth.guard";
 import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
 import { ExpenseAddComponent } from './expense/expense-add/expense-add.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
@@ -31,26 +31,32 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'create-income',
     component: IncomeAddComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'my-incomes',
     component: IncomeListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'edit-income-router/:id',
     component: IncomeEditModalComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'my-expenses',
     component: ExpenseListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'create-expense',
     component: ExpenseAddComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',

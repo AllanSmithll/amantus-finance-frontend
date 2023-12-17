@@ -18,6 +18,7 @@ export class RegisterComponent {
   onRegister(name: string, email: string, password: string, birthdate: Date): void {
     this.authService.register(name, email, password, birthdate).subscribe((registrationSuccessful: boolean) => {
         if (registrationSuccessful) {
+          this.menssageService.showSuccess('Cadastro realizado com sucesso! Agora pode se logar')
           this.router.navigate(['/login']).then(() => {
           });
         } else {
