@@ -17,6 +17,15 @@
       "_listIncomes": [],
       "_listExpenses": [],
       "id": 2
+    },
+    {
+      "_email": "alic.victor@academico.ifpb.edu.br",
+      "_password": "Victor2003!",
+      "_name": "Alic",
+      "_birthdate": "2023-12-10T03:00:00.000Z",
+      "_listIncomes": [],
+      "_listExpenses": [],
+      "id": 3
     }
   ],
   "incomes": [

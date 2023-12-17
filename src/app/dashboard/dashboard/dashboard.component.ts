@@ -1,11 +1,10 @@
-import { IncomeFirestoreService } from './../../shared/services/income-firestore.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 import { Income } from 'src/app/shared/models/income.model';
 import { ExpenseService } from 'src/app/shared/services/expense.service';
 import { Expense } from 'src/app/shared/models/expense.model';
-import { ExpenseFirestoreService } from 'src/app/shared/services/expense-firestore.service';
+import { IncomeService } from 'src/app/shared/services/income.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,12 +22,12 @@ export class DashboardComponent implements OnInit {
   showDough: boolean = true;
 
   constructor(
-    private incomeFirestoreService: IncomeFirestoreService,
-    private expenseFirestoreService: ExpenseFirestoreService
+    private incomeService: IncomeService,
+    private expenseService: ExpenseService
   ) {}
 
   ngOnInit(): void {
-    this.incomeFirestoreService.list().subscribe((result) => {
+    this.incomeService.list().subscribe((result) => {
       this.chartIncomeData = result;
       if (this.chartIncomeData && this.chartIncomeData.length > 0) {
         this.renderPieChart();
@@ -36,7 +35,7 @@ export class DashboardComponent implements OnInit {
         this.showPie = false;
       }
     });
-    this.expenseFirestoreService.list().subscribe((result) => {
+    this.expenseService.list().subscribe((result) => {
       this.chartExpenseData = result;
       if (this.chartExpenseData && this.chartExpenseData.length > 0) {
         this.renderDoughnutChart();
@@ -44,8 +43,8 @@ export class DashboardComponent implements OnInit {
         this.showDough = false;
       }
     });
-    this.incomeFirestoreService.list().subscribe(incomes => {
-      this.expenseFirestoreService.list().subscribe(expenses => {
+    this.incomeService.list().subscribe(incomes => {
+      this.expenseService.list().subscribe(expenses => {
         this.lineChartData = {
           labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
           datasets: [
