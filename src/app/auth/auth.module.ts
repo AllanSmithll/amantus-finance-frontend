@@ -11,7 +11,7 @@ import { MaterialModule } from '../layout/material/material.module';
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
     imports: [
       CommonModule,

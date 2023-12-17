@@ -7,7 +7,7 @@ import { ExpenseRouterComponent } from './expense-router/expense-router.componen
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { ExpenseEditModalComponent } from './expense-edit-modal/expense-edit-modal.component';
 import {MaterialModule} from "../layout/material/material.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import {FormsModule} from "@angular/forms";
     RouterOutlet,
     RouterModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     ExpenseAddComponent,
