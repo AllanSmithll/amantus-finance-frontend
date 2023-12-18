@@ -32,7 +32,8 @@ const routes: Routes = [
   },
   {
     path: 'configs',
-    component: ConfigsComponent
+    component: ConfigsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'dashboard',
