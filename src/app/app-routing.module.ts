@@ -7,7 +7,7 @@ import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import { IncomeListComponent } from './income/income-list/income-list.component';
 import { IncomeAddComponent } from './income/income-add/income-add.component';
 import { IncomeEditModalComponent } from './income/income-edit-modal/income-edit-modal.component';
-import {AuthGuard} from "./shared/services/auth.guard";
+import { AuthGuard } from "./shared/services/auth.guard";
 import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
 import { ExpenseAddComponent } from './expense/expense-add/expense-add.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';

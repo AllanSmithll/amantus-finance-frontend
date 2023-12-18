@@ -14,11 +14,12 @@ import { MaterialModule } from "./layout/material/material.module";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { IncomeModule } from './income/income.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from "@angular/material/dialog";
+import { MatDialogModule } from "@angular/material/dialog";
 import { InterceptorsModule } from './interceptors/interceptors.module';
 import { ExpenseModule } from './expense/expense.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { FirestoreModule } from './firestore/firestore.module';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FirestoreModule } from './firestore/firestore.module';
     InterceptorsModule,
     ExpenseModule,
     DashboardModule,
-    FirestoreModule
+    FirestoreModule,
+    MatMenuModule,
   ],
   providers: [],
   exports: [

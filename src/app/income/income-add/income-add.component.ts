@@ -3,6 +3,7 @@ import { Income } from '../../shared/models/income.model';
 import { Component } from '@angular/core';
 import { IncomeService } from '../../shared/services/income.service';
 import { MenssageService } from 'src/app/shared/services/menssage.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-income-router-add',
@@ -12,24 +13,38 @@ import { MenssageService } from 'src/app/shared/services/menssage.service';
 export class IncomeAddComponent {
   title = 'TELA DE RECEITA';
   receitaTratamento: Income;
-  mensagemErro: string = '';
-  mostrarErro: boolean = false;
+  formulario: FormGroup;
 
-  constructor(private incomeFirestoreService: IncomeService, private menssageService: MenssageService) {
+  constructor(
+    private incomeService: IncomeService, 
+    private menssageService: MenssageService,
+    private fb: FormBuilder) {
     this.receitaTratamento = new Income('');
+    this.formulario = this.fb.group({
+      description: ['', Validators.required],
+      value: [null, [Validators.required, Validators.min(0)]],
+      date: [null, Validators.required],
+      category: ['', Validators.required],
+      frequency: ['', Validators.required],
+      origin: ['', Validators.required],
+      add_information: ['']
+    });
   }
 
   cadastrar(): void {
-
-    this.incomeFirestoreService.register(this.receitaTratamento).subscribe(
-      () => {
-        this.menssageService.showSuccess('Receita cadastrada com sucesso!');
-      },
-      (error) => {
-        this.menssageService.showError('Erro ao cadastrar receita!');
-        console.error('Erro ao cadastrar receita: ', error);
-      }
-    )
+    if(this.formulario.valid) {
+      this.incomeService.register(this.receitaTratamento).subscribe(
+        () => {
+          this.menssageService.showSuccess('Receita cadastrada com sucesso!');
+        },
+        (error) => {
+          this.menssageService.showError('Erro ao cadastrar receita!');
+          console.error('Erro ao cadastrar receita: ', error);
+        }
+      )
+    } else {
+      this.menssageService.showError('Erro ao cadastrar receita! Verifique os campos obrigatórios');
+    }
   }
 
 }
