@@ -3,31 +3,32 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Subject, takeUntil} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {MenssageService} from "../../shared/services/menssage.service";
+import {ExpenseService} from "../../shared/services/expense.service";
 import {Expense} from "../../shared/models/expense.model";
 import {ExpenseEditModalComponent} from "../expense-edit-modal/expense-edit-modal.component";
 import { ExpenseService } from 'src/app/shared/services/expense.service';
 
 @Component({
-    selector: 'app-expense-list',
-    templateUrl: './expense-list.component.html',
-    styleUrls: ['./expense-list.component.sass']
+  selector: 'app-expense-list',
+  templateUrl: './expense-list.component.html',
+  styleUrls: ['./expense-list.component.sass']
 })
 
 export class ExpenseListComponent implements OnInit {
-    displayedColumns: string[] = ['id', 'description', 'value', 'date', 'category', 'frequency', 'payment_method', 'actions'];
-    dataSource = new MatTableDataSource<Expense>();
-    private unsubscribe$ = new Subject<void>();
+  displayedColumns: string[] = ['id', 'description', 'value', 'date', 'category', 'frequency', 'payment_method', 'actions'];
+  dataSource = new MatTableDataSource<Expense>();
+  private unsubscribe$ = new Subject<void>();
 
     constructor(private expenseService: ExpenseService, private dialog: MatDialog,
                 private messageService: MenssageService) {
     }
 
-    ngOnInit(): void {
-        this.loadExpenseData();
-        this.subscribeToExpenseUpdates();
-    }
-
-    private loadExpenseData(): void {
+  ngOnInit(): void {
+    this.loadExpenseData();
+    this.subscribeToExpenseUpdates();
+  }
+  
+  private loadExpenseData(): void {
         this.expenseService.list().subscribe(
             (data: Expense[]) => {
                 this.dataSource.data = data;
@@ -44,18 +45,18 @@ export class ExpenseListComponent implements OnInit {
             .subscribe(() => this.loadExpenseData());
     }
 
-    applyFilter(event: Event) {
-        const filterValue = (event.target as HTMLInputElement).value;
-        this.dataSource.filter = filterValue.trim().toLowerCase();
-    }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
-    editItem(item: Expense): void {
-        const dialogRef = this.dialog.open(ExpenseEditModalComponent, {
-            width: '400px',
-            data: {expense: {...item}}
-        });
+  editItem(item: Expense): void {
+    const dialogRef = this.dialog.open(ExpenseEditModalComponent, {
+      width: '400px',
+      data: {expense: {...item}}
+    });
 
-        dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
             if (result && result.expense) {
                 const updatedExpense: any = { ...result.expense };
                 this.expenseService.update(updatedExpense).subscribe(() => {
@@ -63,9 +64,10 @@ export class ExpenseListComponent implements OnInit {
                 });
             }
         });
-    }
+    });
+  }
 
-    delete(expense: Expense): void {
+  delete(expense: Expense): void {
         this.messageService.confirm('Tem certeza?', 'Você deseja excluir a despesa?')
             .then((confirmed) => {
                 if (confirmed) {
@@ -83,8 +85,8 @@ export class ExpenseListComponent implements OnInit {
             })
     }
 
-    ngOnDestroy(): void {
-        this.unsubscribe$.next();
-        this.unsubscribe$.complete();
-    }
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }
