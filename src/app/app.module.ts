@@ -20,13 +20,16 @@ import { ExpenseModule } from './expense/expense.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { FirestoreModule } from './firestore/firestore.module';
 import { MatMenuModule } from '@angular/material/menu';
+import { ConfigsComponent } from './pages/configs/configs.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ConfigsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { MatMenuModule } from '@angular/material/menu';
     DashboardModule,
     FirestoreModule,
     MatMenuModule,
+    FormsModule
   ],
   providers: [],
   exports: [

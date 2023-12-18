@@ -11,6 +11,7 @@ import { AuthGuard } from "./shared/services/auth.guard";
 import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
 import { ExpenseAddComponent } from './expense/expense-add/expense-add.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { ConfigsComponent } from './pages/configs/configs.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,12 @@ const routes: Routes = [
   },
   {
     path: 'not-found',
-    component: NotFoundComponent},
+    component: NotFoundComponent
+  },
+  {
+    path: 'configs',
+    component: ConfigsComponent
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,
