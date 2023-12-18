@@ -47,5 +47,5 @@ export class RegisterComponent {
     }
     // @ts-ignore
     return null;
-}
+  }
 }
