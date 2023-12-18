@@ -1,0 +1,36 @@
+<div class="container">
+    <h1 class="text-center mb-5">Configurações Pessoais</h1>
+  
+    <div class="row justify-content-center align-items-center mb-5">
+      <div class="configuracoes card p-5 mb-5 w-50">
+        <div class="mb-4 text-center">
+            <img 
+            src="../../../assets/ilustracao-em-vetor-de-foto-de-p.jpg" 
+            alt="profile"
+            height="150px"
+            width="150px">            
+        </div>
+
+        
+        <div class="mb-4">
+          <label for="name">Nome:</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="user.name" />
+        </div>
+  
+        <div class="mb-4">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="user.email" />
+        </div>
+  
+        <div class="mb-4">
+          <label for="birthdate">Data de Nascimento:</label>
+          <input type="date" class="form-control" id="birthdate" [(ngModel)]="user.birthdate" />
+        </div>
+  
+        <div class="text-center">
+          <button class="btn btn-primary mt-3" (click)="saveChanges()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

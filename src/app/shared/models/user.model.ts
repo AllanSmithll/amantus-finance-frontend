@@ -2,6 +2,7 @@ import { Expense } from "./expense.model";
 import { Income } from "./income.model";
 
 export class User {
+  public id?: string;
   private _email: string;
   private _password: string;
   private _name: string;
