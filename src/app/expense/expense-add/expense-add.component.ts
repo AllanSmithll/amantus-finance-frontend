@@ -16,7 +16,7 @@ export class ExpenseAddComponent {
   constructor(private expenseService: ExpenseService,
     private menssageService: MenssageService,
     private fb: FormBuilder) {
-    this.transientExpense = new Expense('');
+    this.transientExpense  = {} as Expense;
     this.formulario = this.fb.group({
       description: ['', Validators.required],
       value: [null, [Validators.required, Validators.min(0)]],

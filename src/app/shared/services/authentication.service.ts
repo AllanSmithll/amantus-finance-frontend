@@ -24,7 +24,7 @@ export class AuthenticationService {
   }
 
   register(name: string, email: string, password: string, birthdate: Date): Observable<boolean> {
-    const userCreation: User = new User(email, password, name, birthdate);
+    const userCreation: User = { email, password, name, birthdate, listIncomes: [], listExpenses: [] };
     return this.http.post<User>(this.apiUsersUrl, userCreation).pipe(
       map((response: User) => {
         const isAuthenticated: boolean = !!response;
