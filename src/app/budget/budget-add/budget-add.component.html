@@ -4,7 +4,7 @@
         <mat-card-title class="fs-3">Cadastro de Orçamentos</mat-card-title>
     </mat-card-header>
 
-    <mat-card-content class="card-content-cadastro row row-cols-3" [formGroup]="formulario">
+    <mat-card-content class="card-content-cadastro row row-cols-2" [formGroup]="formulario">
 
         <mat-form-field>
             <mat-label>Descrição</mat-label>
@@ -26,18 +26,6 @@
             <mat-select formControlName="type" [(ngModel)]="transientBudget.type" placeholder="Escolha o tipo de orçamento" required>
                 <mat-option value="Fixo">Fixo</mat-option>
                 <mat-option value="Flexível">Flexível</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Categoria da Despesa</mat-label>
-            <mat-select formControlName="expense_category"[(ngModel)]="transientBudget.expense_category" placeholder="Escolha a categoria da despesa" required>
-                <mat-option value="Luz">Luz</mat-option>
-                <mat-option value="Água">Água</mat-option>
-                <mat-option value="Energia">Energia</mat-option>
-                <mat-option value="Gás">Gás</mat-option>
-                <mat-option value="Alimentação">Alimentação</mat-option>
-                <mat-option value="Outros">Outros</mat-option>
             </mat-select>
         </mat-form-field>
 

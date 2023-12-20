@@ -21,8 +21,7 @@ export class BudgetAddComponent {
       description: ['', Validators.required],
       value: [null, [Validators.required, Validators.min(0)]],
       date: [null, Validators.required],
-      type: ['', Validators.required],
-      expense_category: ['', Validators.required],
+      type: ['', Validators.required]
     });
   }
 

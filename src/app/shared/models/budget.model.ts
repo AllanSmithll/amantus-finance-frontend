@@ -4,5 +4,4 @@ export interface Budget {
     value: number;
     date: string;
     type: string;
-    expense_category: string;
 }

@@ -13,7 +13,7 @@ import { BudgetEditModalComponent } from '../budget-edit-modal/budget-edit-modal
   styleUrls: ['./budget-list.component.sass']
 })
 export class BudgetListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'description', 'value', 'date', 'type', 'expense_category', 'actions'];
+  displayedColumns: string[] = ['id', 'description', 'value', 'date', 'type', 'actions'];
   dataSource = new MatTableDataSource<Budget>();
   private unsubscribe$ = new Subject<void>();
 
