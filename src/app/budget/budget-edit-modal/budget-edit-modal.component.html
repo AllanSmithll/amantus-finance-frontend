@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Editar Orçamento - {{ data.budget.id }}</h2>
+<div mat-dialog-content>
+    <p>Editar detalhes do orçamento:</p>
+
+    <form class="row justify-content-center">
+        <mat-form-field>
+            <mat-label>Descrição</mat-label>
+            <input matInput [(ngModel)]="data.budget.description" placeholder="Descrição do orçamento"  name="description"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Valor</mat-label>
+            <input matInput type="number" [(ngModel)]="data.budget.value" placeholder="Valor tota do orçamento" name="value"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Data</mat-label>
+            <input matInput type="date" [(ngModel)]="data.budget.date" placeholder="Data do orçamento" name="date"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <mat-select [(ngModel)]="data.budget.type" placeholder="Escolha o tipo de orçamento" name="type">
+                <mat-option value="Fixo">Fixo</mat-option>
+                <mat-option value="Flexível">Flexível</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>
