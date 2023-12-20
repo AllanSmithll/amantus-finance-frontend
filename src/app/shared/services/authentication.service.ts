@@ -1,35 +1,37 @@
 import {Injectable} from '@angular/core';
 import {User} from "../models/user.model";
-import {BehaviorSubject, Observable, map} from "rxjs";
+import {BehaviorSubject, Observable, map, filter, first} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {UserService} from "./user.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   private isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  private apiUsersUrl  = 'http://localhost:3000/users';
+  private currentUser: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   login(email: string, password: string): Observable<boolean> {
-    return this.http.get<User[]>(this.apiUsersUrl).pipe(
-      map(users => {
-        const user: User | undefined = users.find((user: any) => user._email === email && user._password === password);
-        const isAuthenticated: boolean = !!user;
+    return this.userService.list().pipe(
+      map((users) => users.find((user) => user.email === email && user.password === password)),
+      map((user) => {
+        const isAuthenticated = !!user;
         this.isAuthenticated.next(isAuthenticated);
+        this.currentUser.next(user || null);
         return isAuthenticated;
       })
     );
   }
 
+
   register(name: string, email: string, password: string, birthdate: Date): Observable<boolean> {
     const userCreation: User = { email, password, name, birthdate, listIncomes: [], listExpenses: [] };
-    return this.http.post<User>(this.apiUsersUrl, userCreation).pipe(
-      map((response: User) => {
-        const isAuthenticated: boolean = !!response;
-        this.isAuthenticated.next(isAuthenticated);
-        return isAuthenticated;
+    return this.userService.register(userCreation).pipe(
+      map((registeredUser) => {
+        this.isAuthenticated.next(true);
+        return true;
       })
     );
   }
@@ -40,5 +42,9 @@ export class AuthenticationService {
 
   isAuthenticatedUser(): Observable<boolean> {
     return this.isAuthenticated.asObservable();
+  }
+
+  getCurrentUser(): Observable<User | null> {
+    return this.currentUser.asObservable();
   }
 }
