@@ -12,6 +12,8 @@ import { ExpenseListComponent } from './expense/expense-list/expense-list.compon
 import { ExpenseAddComponent } from './expense/expense-add/expense-add.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { ConfigsComponent } from './pages/configs/configs.component';
+import { BudgetAddComponent } from './budget/budget-add/budget-add.component';
+import { BudgetListComponent } from './budget/budget-list/budget-list.component';
 
 const routes: Routes = [
   {
@@ -63,6 +65,16 @@ const routes: Routes = [
   {
     path: 'create-expense',
     component: ExpenseAddComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'create-budget',
+    component: BudgetAddComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'my-budgets',
+    component: BudgetListComponent,
     canActivate: [AuthGuard]
   },
   {

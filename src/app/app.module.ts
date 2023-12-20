@@ -22,6 +22,7 @@ import { FirestoreModule } from './firestore/firestore.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { ConfigsComponent } from './pages/configs/configs.component';
 import { FormsModule } from '@angular/forms';
+import { BudgetModule } from './budget/budget.module';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { FormsModule } from '@angular/forms';
     DashboardModule,
     FirestoreModule,
     MatMenuModule,
-    FormsModule
+    FormsModule,
+    BudgetModule
   ],
   providers: [],
   exports: [

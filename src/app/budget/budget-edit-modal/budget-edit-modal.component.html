@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Editar Orçamento - {{ data.budget.id }}</h2>
+<div mat-dialog-content>
+    <p>Editar detalhes do orçamento:</p>
+
+    <form class="row justify-content-center">
+        <mat-form-field>
+            <mat-label>Descrição</mat-label>
+            <input matInput [(ngModel)]="data.budget.description" placeholder="Descrição do orçamento"  name="description"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Valor</mat-label>
+            <input matInput type="number" [(ngModel)]="data.budget.value" placeholder="Valor tota do orçamento" name="value"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Data</mat-label>
+            <input matInput type="date" [(ngModel)]="data.budget.date" placeholder="Data do orçamento" name="date"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <mat-select [(ngModel)]="data.budget.type" placeholder="Escolha o tipo de orçamento" name="type">
+                <mat-option value="Fixo">Fixo</mat-option>
+                <mat-option value="Flexível">Flexível</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Categoria da Despesa</mat-label>
+            <mat-select [(ngModel)]="data.budget.expense_category" placeholder="Escolha a categoria da despesa" name="expense_category">
+                <mat-option value="Luz">Luz</mat-option>
+                <mat-option value="Água">Água</mat-option>
+                <mat-option value="Energia">Energia</mat-option>
+                <mat-option value="Gás">Gás</mat-option>
+                <mat-option value="Alimentação">Alimentação</mat-option>
+                <mat-option value="Outros">Outros</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>
