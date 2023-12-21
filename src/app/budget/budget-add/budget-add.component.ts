@@ -19,8 +19,10 @@ export class BudgetAddComponent {
     this.transientBudget  = {} as Budget;
     this.formulario = this.fb.group({
       description: ['', Validators.required],
-      value: [null, [Validators.required, Validators.min(0)]],
-      date: [null, Validators.required],
+      value_total: [null, [Validators.required, Validators.min(0)]],
+      value_missing: [null, [Validators.required, Validators.min(0)]],
+      date_creation: [null, Validators.required],
+      date_expiration: [null, Validators.required],
       type: ['', Validators.required]
     });
   }
