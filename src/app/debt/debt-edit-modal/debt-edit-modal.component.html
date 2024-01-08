@@ -1,0 +1,67 @@
+<h2 mat-dialog-title>Editar Dívida - {{ data.debt.id }}</h2>
+<div mat-dialog-content>
+  <p>Editar detalhes da dívida:</p>
+    <mat-form-field>
+      <mat-label>Nome do credor</mat-label>
+      <input matInput formControlName="debtor_name" placeholder="Descrição da dívida" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Valor total da dívida</mat-label>
+      <input matInput type="number" formControlName="value" placeholder="Valor total da dívida" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Valor faltante da dívida</mat-label>
+      <input matInput type="number" formControlName="value_pending" placeholder="Valor faltante da dívida" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName="type" placeholder="Escolha o tipo da dívida">
+        <mat-option value="CREDIT">Crédito</mat-option>
+        <mat-option value="FINANCING">Financiamento</mat-option>
+        <mat-option value="LOAN">Empréstimo</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Taxa de juros</mat-label>
+      <input matInput type="number" formControlName="interest_rates_tax" placeholder="Taxa de juros" matSuffix="%">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Multa total</mat-label>
+      <input matInput type="number" formControlName="penalties" placeholder="Multa total" matSuffix="%">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Data da dívida</mat-label>
+      <input matInput type="date" formControlName="date" placeholder="Data da dívida" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Data de validade</mat-label>
+      <input matInput type="date" formControlName="date_expiration" placeholder="Data de validade da dívida" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" placeholder="Status da dívida">
+        <mat-option value="PAID">Paga</mat-option>
+        <mat-option value="PENDING">Pendente</mat-option>
+        <mat-option value="CANCELED">Cancelada</mat-option>
+        <mat-option value="UNDER_NEGOTIATION">Em negociação</mat-option>
+        <mat-option value="PARTIALLY_PAID">Paga parcialmente</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Informações para contato</mat-label>
+      <input matInput formControlName="contact_information" placeholder="Informações para contato">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data">Save</button>
+</div>

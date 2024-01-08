@@ -1,0 +1,7 @@
+export enum DebtStatus {
+  PAID,
+  PENDING,
+  CANCELED,
+  UNDER_NEGOTIATION,
+  PARTIALLY_PAID
+}

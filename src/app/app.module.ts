@@ -18,11 +18,11 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { InterceptorsModule } from './interceptors/interceptors.module';
 import { ExpenseModule } from './expense/expense.module';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { FirestoreModule } from './firestore/firestore.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { ConfigsComponent } from './pages/configs/configs.component';
 import { FormsModule } from '@angular/forms';
 import { BudgetModule } from './budget/budget.module';
+import {DebtModule} from "./debt/debt.module";
 
 @NgModule({
   declarations: [
@@ -47,10 +47,10 @@ import { BudgetModule } from './budget/budget.module';
     InterceptorsModule,
     ExpenseModule,
     DashboardModule,
-    FirestoreModule,
     MatMenuModule,
     FormsModule,
-    BudgetModule
+    BudgetModule,
+    DebtModule
   ],
   providers: [],
   exports: [
