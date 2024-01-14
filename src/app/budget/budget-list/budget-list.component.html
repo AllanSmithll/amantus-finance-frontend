@@ -20,12 +20,12 @@
 
         <ng-container matColumnDef="value_total">
             <th mat-header-cell *matHeaderCellDef> Valor total </th>
-            <td mat-cell *matCellDef="let element"> {{element.value_total}} </td>
+            <td mat-cell *matCellDef="let element"> R${{element.value_total}} </td>
         </ng-container>
 
         <ng-container matColumnDef="value_missing">
             <th mat-header-cell *matHeaderCellDef> Valor que falta </th>
-            <td mat-cell *matCellDef="let element"> {{element.value_missing}} </td>
+            <td mat-cell *matCellDef="let element"> R${{element.value_missing}} </td>
         </ng-container>
 
       <ng-container matColumnDef="date_creation">

@@ -1,9 +1,10 @@
 export interface Transaction {
-    id: string;
+    id: number;
     description: string;
     value: number;
-    date: string;
+    date: Date;
     category: string;
     frequency: string;
-    add_information?: string;
+    add_information?: string | null;
+    user_id: number;
 }

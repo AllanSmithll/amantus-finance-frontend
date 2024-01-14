@@ -44,6 +44,11 @@
           </button>
         </li>
         <li class="nav-item" *ngIf="varUserIsLoggedIn">
+          <button class="p-3" mat-button color="primary" [routerLink]="['/create-debt']">
+            Dívidas
+          </button>
+        </li>
+        <li class="nav-item" *ngIf="varUserIsLoggedIn">
           <button class="p-3" mat-button color="primary" [matMenuTriggerFor]="menu">
             <mat-icon class="text-black fs-5">person</mat-icon>
           </button>

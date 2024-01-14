@@ -1,0 +1,67 @@
+<h2 mat-dialog-title>Editar Dívida - {{ data.debt.id }}</h2>
+<div mat-dialog-content>
+  <p>Editar detalhes da dívida:</p>
+  <mat-form-field>
+    <mat-label>Nome do credor</mat-label>
+    <input matInput [(ngModel)]="data.debt.creditor_name" placeholder="Descrição do orçamento" name="description"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Valor total da dívida</mat-label>
+    <input matInput [(ngModel)]="data.debt.value" placeholder="Descrição do orçamento" name="description"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Valor faltante da dívida</mat-label>
+    <input matInput [(ngModel)]="data.debt.value_pending" placeholder="Descrição do orçamento" name="description"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Tipo</mat-label>
+    <mat-select [(ngModel)]="data.debt.type" placeholder="Escolha o tipo de orçamento" name="type">      <mat-option value="CREDIT">Crédito</mat-option>
+      <mat-option value="FINANCING">Financiamento</mat-option>
+      <mat-option value="LOAN">Empréstimo</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Taxa de juros</mat-label>
+    <input matInput [(ngModel)]="data.debt.interest_rates_tax" placeholder="Descrição do orçamento" name="description"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Multa total</mat-label>
+    <input matInput [(ngModel)]="data.debt.penalties" placeholder="Descrição do orçamento" name="description"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Data da dívida</mat-label>
+    <input matInput [(ngModel)]="data.debt.date" placeholder="Descrição do orçamento" name="description"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Data de validade</mat-label>
+    <input matInput [(ngModel)]="data.debt.date_expiration" placeholder="Descrição do orçamento" name="description"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select [(ngModel)]="data.debt.status" placeholder="Escolha o tipo de orçamento" name="type">
+      <mat-option value="PAID">Paga</mat-option>
+      <mat-option value="PENDING">Pendente</mat-option>
+      <mat-option value="CANCELED">Cancelada</mat-option>
+      <mat-option value="UNDER_NEGOTIATION">Em negociação</mat-option>
+      <mat-option value="PARTIALLY_PAID">Paga parcialmente</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Informações para contato</mat-label>
+    <input matInput [(ngModel)]="data.debt.contact_information" placeholder="Descrição do orçamento" name="description"/>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data">Save</button>
+</div>

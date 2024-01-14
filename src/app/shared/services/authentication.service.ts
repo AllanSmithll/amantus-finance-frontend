@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {User} from "../models/user.model";
-import {BehaviorSubject, Observable, map, filter, first} from "rxjs";
+import {BehaviorSubject, Observable, map } from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {UserService} from "./user.service";
 
@@ -27,7 +27,7 @@ export class AuthenticationService {
 
 
   register(name: string, email: string, password: string, birthdate: Date): Observable<boolean> {
-    const userCreation: User = { email, password, name, birthdate, listIncomes: [], listExpenses: [] };
+    const userCreation: User = { email, password, name, birthdate };
     return this.userService.register(userCreation).pipe(
       map((registeredUser) => {
         this.isAuthenticated.next(true);

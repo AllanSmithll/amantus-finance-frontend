@@ -14,6 +14,8 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { ConfigsComponent } from './pages/configs/configs.component';
 import { BudgetAddComponent } from './budget/budget-add/budget-add.component';
 import { BudgetListComponent } from './budget/budget-list/budget-list.component';
+import {DebtAddComponent} from "./debt/debt-add/debt-add.component";
+import {DebtListComponent} from "./debt/debt-list/debt-list.component";
 
 const routes: Routes = [
   {
@@ -53,11 +55,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'edit-income-router/:id',
-    component: IncomeEditModalComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'my-expenses',
     component: ExpenseListComponent,
     canActivate: [AuthGuard]
@@ -75,6 +72,16 @@ const routes: Routes = [
   {
     path: 'my-budgets',
     component: BudgetListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'create-debt',
+    component: DebtAddComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'my-debts',
+    component: DebtListComponent,
     canActivate: [AuthGuard]
   },
   {
