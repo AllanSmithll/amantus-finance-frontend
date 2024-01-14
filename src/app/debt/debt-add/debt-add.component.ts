@@ -18,7 +18,7 @@ export class DebtAddComponent {
               private fb: FormBuilder) {
     this.transientDebt  = {} as Debt;
     this.formGroup = this.fb.group({
-      debtor_name: ['', Validators.required],
+      creditor_name: ['', Validators.required],
       value: [null, [Validators.required, Validators.min(0)]],
       value_pending: [null, [Validators.required, Validators.min(0)]],
       type: ['', Validators.required],

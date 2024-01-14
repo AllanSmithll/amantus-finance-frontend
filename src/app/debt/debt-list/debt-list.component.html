@@ -14,24 +14,26 @@
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="debtor_name">
+    <ng-container matColumnDef="creditor_name">
       <th mat-header-cell *matHeaderCellDef>Credor</th>
-      <td mat-cell *matCellDef="let element"> {{element.debtor_name}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.creditor_name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="value">
       <th mat-header-cell *matHeaderCellDef>Valor total</th>
-      <td mat-cell *matCellDef="let element"> {{element.value | currency}} </td>
+      <td mat-cell *matCellDef="let element"> R${{element.value}} </td>
     </ng-container>
 
     <ng-container matColumnDef="value_pending">
       <th mat-header-cell *matHeaderCellDef>Valor faltante</th>
-      <td mat-cell *matCellDef="let element"> {{element.value_pending | currency}} </td>
+      <td mat-cell *matCellDef="let element"> R${{element.value_pending}} </td>
     </ng-container>
 
     <ng-container matColumnDef="type">
       <th mat-header-cell *matHeaderCellDef>Tipo</th>
-      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      <td mat-cell *matCellDef="let element">
+        {{element.type | debtType}}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="date">
@@ -46,7 +48,9 @@
 
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef>Status</th>
-      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      <td mat-cell *matCellDef="let element">
+        {{element.status | debtStatus}}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="actions">

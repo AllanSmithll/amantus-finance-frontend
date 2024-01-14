@@ -2,7 +2,7 @@ import {DebtType} from "./debt-type.enum";
 
 export interface Debt {
   id: string;
-  debtor_name: string;
+  creditor_name: string;
   value: number;
   value_pending: number;
   type: DebtType;

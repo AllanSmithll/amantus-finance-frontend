@@ -8,6 +8,7 @@ import {BudgetModule} from "../budget/budget.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {MaterialModule} from "../layout/material/material.module";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MaterialModule} from "../layout/material/material.module";
     RouterLinkActive,
     RouterOutlet,
     RouterLink,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class DebtModule { }

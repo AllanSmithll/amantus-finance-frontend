@@ -13,7 +13,7 @@ import {DebtEditModalComponent} from "../debt-edit-modal/debt-edit-modal.compone
   styleUrls: ['./debt-list.component.sass']
 })
 export class DebtListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'debtor_name', 'value', 'value_pending',
+  displayedColumns: string[] = ['id', 'creditor_name', 'value', 'value_pending',
     'type', 'date', 'date_expiration', 'status', 'actions'];
   dataSource = new MatTableDataSource<Debt>();
   private unsubscribe$ = new Subject<void>();
