@@ -4,7 +4,7 @@
 
 Seja você alguém que está buscando melhorar seus hábitos financeiros, criar orçamentos mensais, economizar para uma grande compra, acompanhar detalhadamente suas despesas diárias ou planejar sua aposentadoria, **Amantus Finance** oferece as ferramentas certas para te ajudar.
 
-[COLOCAR PREVIEW]
+![Tela Principal do Amantus Finance](src\assets\amantus-finance-preview.png)
 
 ## Funcionalidades
 
