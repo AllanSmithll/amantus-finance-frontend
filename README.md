@@ -5,6 +5,16 @@
 Seja você alguém que está buscando melhorar seus hábitos financeiros, criar orçamentos mensais, economizar para uma grande compra, acompanhar detalhadamente suas despesas diárias ou planejar sua aposentadoria, **Amantus Finance** oferece as ferramentas certas para te ajudar.
 
 ![Tela Principal do Amantus Finance](src/assets/amantus-finance-preview.png)
+![Tela de Cadastro](src/assets/pages/register-user.png)
+![Tela de Login](src/assets/pages/login.png)
+![Dashboard](src/assets/pages/dashboard.png)
+![Tela de Cadastro de Receita](src/assets/pages/register-income.png)
+![Tela de Cadastro de Despesa](src/assets/pages/register-expense.png)
+![Tela de Cadastro de Orçamento](src/assets/pages/register-budget.png)
+![Tela de Cadastro de Dívida](src/assets/pages/register-debt.png)
+![Tela de Configuração](src/assets/pages/configuration.png)
+![Listagem de exemplo](src/assets/pages/list-example.png)
+
 
 ## Funcionalidades
 
@@ -46,26 +56,28 @@ Siga estas etapas para executar o projeto localmente:
 
 - Clique [aqui](https://github.com/AllanSmithll/amantus-finance-backend) para acessar o repositório Backend.
 
-## Como Contribuir
+## Issues
 
-Contribuições são bem-vindas! Aqui estão algumas maneiras de contribuir para o projeto:
+Se você encontrar algum problema ou tiver uma sugestão de melhoria para o Amantus Finance, sinta-se à vontade para abrir uma **issue** no GitHub. Abaixo estão alguns tipos de issues que você pode abrir:
 
-1. **Reportar Bugs:** Se você encontrar um bug ou problema, por favor, abra uma issue no GitHub detalhando o problema. Inclua informações sobre o que estava tentando fazer e o que deu errado.
+1. **Bugs**: se algo não está funcionando como esperado, por favor, crie uma issue detalhando o problema. Certifique-se de incluir:
+  - Descrição clara do bug
+  - Passos para reproduzir o problema
+  - Qual foi o resultado esperado
+  - Informações sobre o ambiente (versão do navegador, sistema operacional, etc.)
 
-2. **Solicitações de Recursos:** Se você tiver uma sugestão de recurso ou melhoria, crie uma issue e descreva a nova funcionalidade que você gostaria de ver.
+2. **Novos recursos**: se você tem uma ideia para uma nova funcionalidade que pode melhorar o Amantus Finance, crie uma issue descrevendo como você acha que o recurso deve funcionar, o problema que ele resolveria, e como ele beneficiaria os usuários.
 
-3. **Contribuições de Código:** Se você deseja contribuir com código, siga estes passos:
-   - Faça um fork do repositório.
-   - Crie uma branch para a sua feature ou correção (`git checkout -b minha-feature`).
-   - Faça suas alterações e adicione testes, se aplicável.
-   - Faça commit das suas alterações (`git commit -am 'Adiciona nova feature'`).
-   - Envie um pull request para a branch principal do repositório.
+3. **Documentação**: se você encontrar erros na documentação ou áreas que precisam de mais esclarecimentos, crie uma issue relacionada à documentação. Isso nos ajudará a melhorar a clareza e precisão das informações.
 
-4. **Documentação:** Se você encontrar erros ou áreas para melhorar na documentação, sinta-se à vontade para enviar correções ou melhorias.
+### Como abrir uma issue
 
-5. **Feedback:** Se você tiver feedback geral sobre o projeto, por favor, compartilhe com a equipe.
+1. Navegue até a aba de **Issues** no repositório do GitHub.
+2. Clique no botão **New Issue**.
+3. Escolha o template apropriado, se aplicável (por exemplo, bug, feature request, etc.).
+4. Preencha os detalhes relevantes e clique em **Submit new issue**.
 
-Estamos ansiosos para sua contribuição!
+A comunidade e os mantenedores irão revisar sua issue e responder assim que possível.
 
 ## Licença
 
